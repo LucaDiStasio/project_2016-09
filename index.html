@@ -474,12 +474,12 @@
 							<small>
 								\[
 									\begin{aligned}
-									 \int_{t_{1}}^{t_{2}}&\left(\delta \left(\frac{1}{2}\int_{0}^{L}\rho\left(\left(x\dot{\theta}\left(t\right)-\dot{w}\left(x,t\right)\right)^{2}+w^{2}\left(x,t\right)\dot{\theta}^{2}\left(t\right)\right)dx
-										+\frac{1}{2}\left(\left(L\dot{\theta}\left(t\right)-\dot{w}\left(L,t\right)\right)^{2}+w^{2}\left(L,t\right)\dot{\theta}^{2}\left(t\right)\right)
-										+\frac{1}{2}J\dot{\theta}^{2}\right)\right)dt+\\
+									 \int_{t_{1}}^{t_{2}}&\left(\delta \left(\frac{1}{2}\int_{0}^{L}\rho\left(\left(x\dot{\theta}\left(t\right)-\dot{w}\left(x,t\right)\right)^{2}+w^{2}\left(x,t\right)\dot{\theta}^{2}\left(t\right)\right)dx\right)dt+\\
+										 +&\int_{t_{1}}^{t_{2}}\frac{1}{2}\left(\left(L\dot{\theta}\left(t\right)-\dot{w}\left(L,t\right)\right)^{2}+w^{2}\left(L,t\right)\dot{\theta}^{2}\left(t\right)\right)\right)dt+\\
+										 +&\int_{t_{1}}^{t_{2}}\frac{1}{2}J\dot{\theta}^{2}\right)\right)dt+\\
 									 +&\int_{t_{1}}^{t_{2}}\left(-\delta\left(\frac{1}{2}\int_{0}^{L}EI\left(w^{''}\left(x,t\right)\right)^{2}dx+\int_{0}^{L}\rho g\cos{\theta\left(t\right)}w\left(x,t\right)dx\right)\right)dt+\\
-									 +&\int_{t_{1}}^{t_{2}}\left(\delta \left(N_{g}\tau\left(t\right)\delta\theta\left(t\right)\right)\right)dt+\\
-									 +&\int_{t_{1}}^{t_{2}}\left(\lambda\delta\phi\right)dt+\\
+									 +&\int_{t_{1}}^{t_{2}}\left(\delta \left(N_{g}\tau\left(t\right)\delta\theta\left(t\right)\right)\right)dt
+									 +\int_{t_{1}}^{t_{2}}\left(\lambda\delta\phi\right)dt\\
 									\end{aligned}
 								
 								\]

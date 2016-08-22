@@ -272,9 +272,9 @@
 						    	\[
 										\begin{aligned}
 											\mathbf{\dot{i}}=\frac{d\mathbf{i}}{dt}&=\mathbf{\omega}\times\mathbf{i}=\\
-											&=\dot{\theta\left(t\right)}\mathbf{k}\times\mathbf{i}=\dot{\theta\left(t\right)}\mathbf{j}\\
+											&=\dot{\theta}\left(t\right)\mathbf{k}\times\mathbf{i}=\dot{\theta}\left(t\right)\mathbf{j}\\
 											\mathbf{\dot{j}}=\frac{d\mathbf{j}}{dt}&=\mathbf{\omega}\times\mathbf{j}=\\
-											&=\dot{\theta\left(t\right)}\mathbf{k}\times\mathbf{j}=-\dot{\theta\left(t\right)}\mathbf{i}\\
+											&=\dot{\theta}\left(t\right)\mathbf{k}\times\mathbf{j}=-\dot{\theta}\left(t\right)\mathbf{i}\\
 										\end{aligned}
 									\]
 						    </div>
@@ -300,7 +300,7 @@
 						    		
 									\[
 										\begin{aligned}
-											\mathbf{r\left(x,t\right)}&=r\mathbf{i}-w\left(x,t\right)\mathbf{j}\\
+											\mathbf{r\left(x,t\right)}&=x\mathbf{i}-w\left(x,t\right)\mathbf{j}\\
 											\mathbf{P\left(L,t\right)}&=\mathbf{r\left(L,t\right)}=L\mathbf{i}-w\left(L,t\right)\mathbf{j}
 										\end{aligned}
 									\]
@@ -310,9 +310,9 @@
 									
 									\[
 										\begin{aligned}
-											\mathbf{\dot{r}\left(x,t\right)}=&\dot{r}\mathbf{i}+r\mathbf{\dot{i}}-\dot{w}\left(x,t\right)\mathbf{j}-w\left(x,t\right)\mathbf{\dot{i}}=\\
-											=&r\dot{\theta}\left(t\right)\mathbf{j}-\dot{w}\left(x,t\right)\mathbf{j}+w\left(x,t\right)\dot{\theta}\left(t\right)\mathbf{i}=\\
-											=&\left(r\dot{\theta}\left(t\right)-\dot{w}\left(x,t\right)\right)\mathbf{j}+w\left(x,t\right)\dot{\theta}\left(t\right)\mathbf{i}\\
+											\mathbf{\dot{r}\left(x,t\right)}=&\dot{x}\mathbf{i}+x\mathbf{\dot{i}}-\dot{w}\left(x,t\right)\mathbf{j}-w\left(x,t\right)\mathbf{\dot{i}}=\\
+											=&x\dot{\theta}\left(t\right)\mathbf{j}-\dot{w}\left(x,t\right)\mathbf{j}+w\left(x,t\right)\dot{\theta}\left(t\right)\mathbf{i}=\\
+											=&\left(x\dot{\theta}\left(t\right)-\dot{w}\left(x,t\right)\right)\mathbf{j}+w\left(x,t\right)\dot{\theta}\left(t\right)\mathbf{i}\\
 										\end{aligned}
 									\]
 									
@@ -384,7 +384,7 @@
 										\[
 											\begin{aligned}
 												X&=L\cos{\theta\left(t\right)+w\left(L,t\right)\sin{\theta\left(t\right)}}\\
-												Y&=L\sin{\theta\left(t\right)-w\left(L,t\right)\sin{\theta\left(t\right)}}
+												Y&=L\sin{\theta\left(t\right)-w\left(L,t\right)\cos{\theta\left(t\right)}}
 											\end{aligned}
 										\]
 											
@@ -440,11 +440,11 @@
 						<h3>Potential energy</h3>
 						<div id="contentBox" style="margin:0px auto; width:100%">
 							<div>
-							    		
-								\[
-									\Pi=\frac{1}{2}\int_{0}^{L}EI\left(w^{''}\left(x,t\right)\right)^{2}dx+\int_{0}^{L}\rho g\cos{\theta\left(t\right)}w\left(x,t\right)dx
-								\]
-								
+								<small>  		
+									\[
+										\Pi=\frac{1}{2}\int_{0}^{L}EI\left(w^{''}\left(x,t\right)\right)^{2}dx+\int_{0}^{L}\rho g\cos{\theta\left(t\right)}w\left(x,t\right)dx-Mgw\left(L,t\right)
+									\]
+								</small>	
 							</div>
 						</div>
 					</section>
@@ -476,7 +476,7 @@
 										\begin{aligned}
 										 \int_{t_{1}}^{t_{2}}&\delta\left(\frac{1}{2}\int_{0}^{L}\rho\left(\left(x\dot{\theta}\left(t\right)-\dot{w}\left(x,t\right)\right)^{2}+w^{2}\left(x,t\right)\dot{\theta}^{2}\left(t\right)\right)dx\right)dt+\\
 										 &+\int_{t_{1}}^{t_{2}}\delta\left(\frac{1}{2}\left(\left(L\dot{\theta}\left(t\right)-\dot{w}\left(L,t\right)\right)^{2}+w^{2}\left(L,t\right)\dot{\theta}^{2}\left(t\right)\right)+\frac{1}{2}J\dot{\theta}^{2}\right)dt+\\
-										 &+\int_{t_{1}}^{t_{2}}-\delta\left(\frac{1}{2}\int_{0}^{L}EI\left(w^{''}\left(x,t\right)\right)^{2}dx+\int_{0}^{L}\rho g\cos{\theta\left(t\right)}w\left(x,t\right)dx\right)dt+\\ 
+										 &+\int_{t_{1}}^{t_{2}}-\delta\left[\left(\frac{1}{2}\int_{0}^{L}EI\left(w^{''}\left(x,t\right)\right)^{2}dx+\int_{0}^{L}\rho g\cos{\theta\left(t\right)}w\left(x,t\right)dx\right)-Mgw_{e}\right]dt+\\ 
 										 &+\int_{t_{1}}^{t_{2}}\delta\left(N_{g}\tau\left(t\right)\delta\theta\left(t\right)\right)dt+\int_{t_{1}}^{t_{2}}\lambda\delta\phi dt=0\\ 
 										\end{aligned}
 									
@@ -487,8 +487,8 @@
 							<small>
 								\[
 									\begin{aligned}
-										-\int_{t_{1}}^{t_{2}}&\left[\int_{0}^{L}\rho\left(x\ddot{\theta}-\ddot{w}\right)\left(x\delta\theta-\delta w\right)dx+M\left(L\ddot{\theta-\ddot{w}_{e}}\right)\left(L\delta\theta-\delta w_{e}\right)+J\ddot{\theta}\delta\theta\right]dt+\\
-										&-\int_{t_{1}}^{t_{2}}\left[\int_{0}^{L}EIw^{''}\delta w^{''}dx +\int_{0}^{L}\rho g\left(\cos{\theta}\dot{w}\delta w-\sin{\theta}w\dot{\theta}\delta\theta\right)dx - N_{g}\tau\delta\theta-\lambda\left(\frac{\partial\phi}{\partial\theta}\delta\theta+\frac{\partial\phi}{\partial w_{e}}\delta w_{e}\right)\right]dt=0
+										-\int_{t_{1}}^{t_{2}}&\left[\int_{0}^{L}\rho\left(x\ddot{\theta}-\ddot{w}\right)\left(x\delta\theta-\delta w\right)dx+M\left(L\ddot{\theta-\ddot{w}_{e}}\right)\left(L\delta\theta-\delta w_{e}\right)+J\ddot{\theta}\delta\theta+Mg\delta w_{e}\right]dt+\\
+										&-\int_{t_{1}}^{t_{2}}\left[\int_{0}^{L}EIw^{''}\delta w^{''}dx +\int_{0}^{L}\rho g\left(\cos{\theta}\delta w-w\sin{\theta}\delta\theta\right)dx - N_{g}\tau\delta\theta-\lambda\left(\frac{\partial\phi}{\partial\theta}\delta\theta+\frac{\partial\phi}{\partial w_{e}}\delta w_{e}\right)\right]dt=0
 									\end{aligned}
 								\]
 							</small>
@@ -502,8 +502,9 @@
 								<small>
 									\[
 										\begin{aligned}
-											-\int_{t_{1}}^{t_{2}}&\left[\int_{0}^{L}\rho\left(x\ddot{\theta}-\ddot{w}\right)\left(x\delta\theta-\delta w\right)dx+M\left(L\ddot{\theta-\ddot{w}_{e}}\right)\left(L\delta\theta-\delta w_{e}\right)+J\ddot{\theta}\delta\theta\right]dt+\\
-											&-\int_{t_{1}}^{t_{2}}\left[\int_{0}^{L}EIw^{''}\delta w^{''}dx +\int_{0}^{L}\rho g\left(\cos{\theta}\dot{w}\delta w-\sin{\theta}w\dot{\theta}\delta\theta\right)dx - N_{g}\tau\delta\theta-\lambda\left(\frac{\partial\phi}{\partial\theta}\delta\theta+\frac{\partial\phi}{\partial w_{e}}\delta w_{e}\right)\right]dt=0
+											-\int_{t_{1}}^{t_{2}}&\left[\int_{0}^{L}\rho\left(x\ddot{\theta}-\ddot{w}\right)\left(x\delta\theta-\delta w\right)dx+M\left(L\ddot{\theta-\ddot{w}_{e}}\right)\left(L\delta\theta-\delta w_{e}\right)+J\ddot{\theta}\delta\theta+Mg\delta w_{e}\right]dt+\\
+											&-\int_{t_{1}}^{t_{2}}\left[\int_{0}^{L}EIw^{''}\delta w^{''}dx +\int_{0}^{L}\rho g\left(\cos{\theta}\delta w-w\sin{\theta}\delta\theta\right)dx - N_{g}\tau\delta\theta-\lambda\left(\frac{\partial\phi}{\partial\theta}\delta\theta+\frac{\partial\phi}{\partial w_{e}}\delta w_{e}\right)\right]dt=\\
+											&=0
 										\end{aligned}
 									\]
 								</small>
@@ -512,8 +513,27 @@
 								<small>
 									\[
 										\begin{aligned}
-											-\int_{t_{1}}^{t_{2}}$\left[\left(\int_{0}^{L}\rho\left(x\ddot{\theta}-\ddot{w}\right)xdx+M\left(L\ddot{\theta}-\ddot{w}_{e}\right)L+J\ddot{\theta}-N_{g}\tau-\lambda\frac{\partial\phi}{\partial\theta}\right)\delta\theta\right]dt+\\
-											-&\int_{t_{1}}^{t_{2}}\left[\int_{0}^{L}\left(\rho\left(-x\ddot{\theta}+\ddot{w}\right)+EIw^{IV}\right)\delta w dx + EIw_{e}^{''}\delta w_{e}^{'}\right]
+											-\int_{t_{1}}^{t_{2}}&\left[\left(\int_{0}^{L}\rho\left(x\ddot{\theta}-\ddot{w}-\frac{g}{x}\sin{\theta}w\right)xdx+M\left(L\ddot{\theta}-\ddot{w}_{e}\right)L+J\ddot{\theta}-N_{g}\tau-\lambda\frac{\partial\phi}{\partial\theta}\right)\delta\theta\right]dt+\\
+											-&\int_{t_{1}}^{t_{2}}\left[\int_{0}^{L}\left(\rho\left(-x\ddot{\theta}+\ddot{w}+g\cos{\theta}\right)+EIw^{'''}\right)\delta w dx+EIw_{e}^{''}\delta w_{e}^{'}\right]dt+\\
+											-&\int_{t_{1}}^{t_{2}}\left[\left(M\left(-L\ddot{\theta+\ddot{w}_{e}}\right)-EIw_{e}^{'''}+Mg-\lambda\frac{\partial\phi}{\partial w_{e}}\right)\delta w_{e}\right]dt=\\
+											&=0
+										\end{aligned}
+									\]
+								</small>
+							</div>
+						</div>
+					</section>
+					<section>
+						<h3>Hamilton's principle</h3>
+						<div id="contentBox" style="margin:0px auto; width:100%">
+							<div> 
+								<small>
+									\[
+										\begin{aligned}
+											J\ddot{\theta}+\int_{0}^{L}\rho\left(x\ddot{\theta}-\ddot{w}-\frac{g}{x}\sin{\theta}w\right)xdx+M\left(L\ddot{\theta}-\ddot{w}_{e}\right)L&=N_{g}\tau+\lambda\frac{\partial\phi}{\partial\theta}\\
+											\ddot{w}+g\cos{\theta}+\frac{EI}{\rho}w^{'''} &= x\ddot{\theta}\\
+											M\left(-L\ddot{\theta}+\ddot{w}_{e}\right)-EIw_{e}^{'''}&=-Mg+\lambda\frac{\partial\phi}{\partial w_{e}}\\
+											EIw^{''}\left(L,t\right)&=0
 										\end{aligned}
 									\]
 								</small>

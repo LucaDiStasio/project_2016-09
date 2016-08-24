@@ -84,7 +84,7 @@
 				
 				<section>
 					<section>
-						<h2>Description of the problem</h2>
+						<h2>Formulation of the model</h2>
 					</section>
 					<section>
 						<h3>Physical Model</h3>
@@ -215,7 +215,7 @@
 									</li>
 									<li>Control variables
 							    		<ul>
-											<li><small>$u\left(t\right)$: contorl force</small></li>
+											<li><small>$u\left(t\right)$: control force</small></li>
 										</ul>
 									</li>
 						    	</ol>
@@ -419,20 +419,104 @@
 						    </div>
 						</div>
 					</section>
+				</section>
+<!--
+===========================================================================================================================
+					GOVERNING EQUATIONS
+===========================================================================================================================
+-->
+				<section>
+					<section>
+						<h2>Derivation of governing equations in Hamiltonian form</h2>
+					</section>
+					<section>
+						<h3>Hamilton's principle</h3>
+						<div id="contentBox" style="margin:0px auto; width:100%">
+							<div>
+							    		
+								\[
+									\begin{aligned}
+										&\delta I=0\\
+									\end{aligned}
+								\]
+								
+							</div>
+							<div class="fragment">
+							    		
+								\[
+									I=\int_{t_{1}}^{t_{2}}\mathcal{L}^{ext}dt
+								\]
+								
+							</div>
+							<div class="fragment">
+							    		
+								\[
+									\mathcal{L}^{ext}=\mathcal{L} + W + \mathbf{\lambda}^{T}\mathbf{\phi}
+								\]
+								
+							</div>
+							<div class="fragment">
+							    		
+								\[
+									\mathcal{L}=T-\Pi
+								\]
+								
+							</div>
+							
+						</div>
+					</section>
 					<section>
 						<h3>Kinetic energy</h3>
 						<div id="contentBox" style="margin:0px auto; width:100%">
 							<div>
 							    		
 								\[
-									\begin{aligned}
-										T=&\frac{1}{2}\int_{0}^{L}\rho\mathbf{\dot{r}}^{T}\mathbf{\dot{r}}dx+\frac{1}{2}M\mathbf{\dot{P}}^{T}\mathbf{\dot{P}}+\frac{1}{2}J\dot{\theta}^{2}=\\
-										=&\frac{1}{2}\int_{0}^{L}\rho\left(\left(x\dot{\theta}\left(t\right)-\dot{w}\left(x,t\right)\right)^{2}+w^{2}\left(x,t\right)\dot{\theta}^{2}\left(t\right)\right)dx+\\
-										&+\frac{1}{2}\left(\left(L\dot{\theta}\left(t\right)-\dot{w}\left(L,t\right)\right)^{2}+w^{2}\left(L,t\right)\dot{\theta}^{2}\left(t\right)\right)+\\
-										&+\frac{1}{2}J\dot{\theta}^{2}
-									\end{aligned}
+									T=\frac{1}{2}\int_{0}^{L}\rho\mathbf{\dot{r}}^{T}\mathbf{\dot{r}}dx+\frac{1}{2}M\mathbf{\dot{P}}^{T}\mathbf{\dot{P}}+\frac{1}{2}J\dot{\theta}^{2}=
 								\]
 								
+							</div>
+							<div class="fragment">
+							    <small>	
+								\[
+									\begin{aligned}
+										=&\frac{1}{2}\int_{0}^{L}\rho\begin{bmatrix}w\left(x,t\right)\dot{\theta}\left(t\right)&\left(x\dot{\theta}\left(t\right)-\dot{w}\left(x,t\right)\right)\end{bmatrix}\begin{bmatrix}w\left(x,t\right)\dot{\theta}\left(t\right)\\ \left(x\dot{\theta}\left(t\right)-\dot{w}\left(x,t\right)\right)\end{bmatrix}dx+\\
+										&+\frac{1}{2}M\begin{bmatrix}w\left(L,t\right)\dot{\theta}\left(t\right)&\left(L\dot{\theta}\left(t\right)-\dot{w}\left(L,t\right)\right)\end{bmatrix}\begin{bmatrix}w\left(L,t\right)\dot{\theta}\left(t\right)\\ \left(L\dot{\theta}\left(t\right)-\dot{w}\left(L,t\right)\right)\end{bmatrix}+\\
+										&+\frac{1}{2}J\dot{\theta}\left(t\right)^{2}=
+									\end{aligned}
+								\]
+								</small>
+							</div>
+							<div class="fragment">
+							    <small>		
+								\[
+									\begin{aligned}
+										=&\frac{1}{2}\int_{0}^{L}\rho\left(\left(x\dot{\theta}\left(t\right)-\dot{w}\left(x,t\right)\right)^{2}+w^{2}\left(x,t\right)\dot{\theta}^{2}\left(t\right)\right)dx+\\
+										&+\frac{1}{2}M\left(\left(L\dot{\theta}\left(t\right)-\dot{w}\left(L,t\right)\right)^{2}+w^{2}\left(L,t\right)\dot{\theta}^{2}\left(t\right)\right)+\\
+										&+\frac{1}{2}J\dot{\theta}\left(t\right)^{2}
+									\end{aligned}
+								\]
+								</small>
+							</div>
+						</div>
+					</section>
+					<section>
+						<h3>Kinetic energy</h3>
+						<div id="contentBox" style="margin:0px auto; width:100%">
+							<div>
+							    		
+								\[
+									T=\frac{1}{2}\int_{0}^{L}\rho\mathbf{\dot{r}}^{T}\mathbf{\dot{r}}dx+\frac{1}{2}M\mathbf{\dot{P}}^{T}\mathbf{\dot{P}}+\frac{1}{2}J\dot{\theta}^{2}=
+								\]
+								
+							</div>
+							<div class="fragment">
+								\[
+									\begin{aligned}
+										=&\frac{1}{2}\int_{0}^{L}\rho\left(x\dot{\theta}\left(t\right)-\dot{w}\left(x,t\right)\right)^{2}dx+\\
+										&+\frac{1}{2}M\left(L\dot{\theta}\left(t\right)-\dot{w}\left(L,t\right)\right)^{2}+\\
+										&+\frac{1}{2}J\dot{\theta}\left(t\right)^{2}
+									\end{aligned}
+								\]
 							</div>
 						</div>
 					</section>
@@ -442,81 +526,375 @@
 							<div>
 								<small>  		
 									\[
-										\Pi=\frac{1}{2}\int_{0}^{L}EI\left(w^{''}\left(x,t\right)\right)^{2}dx+\int_{0}^{L}\rho g\cos{\theta\left(t\right)}w\left(x,t\right)dx-Mgw\left(L,t\right)
+										\Pi=\frac{1}{2}\int_{0}^{L}EI\left(w^{''}\left(x,t\right)\right)^{2}dx-\int_{0}^{L}\rho g\cos{\theta\left(t\right)}w\left(x,t\right)dx-Mgw\left(L,t\right)
 									\]
 								</small>	
 							</div>
 						</div>
 					</section>
 					<section>
-						<h3>Virtual work of external forces</h3>
+						<h3>Work of external forces</h3>
 						<div id="contentBox" style="margin:0px auto; width:100%">
 							<div>  		
 								\[
-									\delta W=N_{g}\tau\left(t\right)\delta\theta\left(t\right)
+									W=N_{g}\tau\left(t\right)\theta\left(t\right)
 								\]
 							</div>
 						</div>
 					</section>
 					<section>
-						<h3>Hamilton's principle</h3>
+						<h3>Euler-Lagrange's equations</h3>
 						<div id="contentBox" style="margin:0px auto; width:100%">
 							<div>
 							    		
 								\[
 									\begin{aligned}
-										&\int_{t_{1}}^{t_{2}}\left(\delta T-\delta\Pi+\delta W+\lambda\delta\phi\right)dt=0\\
+										&\delta I=0\\
 									\end{aligned}
 								\]
 								
 							</div>
-							<div class="fragment"> 
-								<small>
-									\[
-										\begin{aligned}
-										 \int_{t_{1}}^{t_{2}}&\delta\left(\frac{1}{2}\int_{0}^{L}\rho\left(\left(x\dot{\theta}\left(t\right)-\dot{w}\left(x,t\right)\right)^{2}+w^{2}\left(x,t\right)\dot{\theta}^{2}\left(t\right)\right)dx\right)dt+\\
-										 &+\int_{t_{1}}^{t_{2}}\delta\left(\frac{1}{2}\left(\left(L\dot{\theta}\left(t\right)-\dot{w}\left(L,t\right)\right)^{2}+w^{2}\left(L,t\right)\dot{\theta}^{2}\left(t\right)\right)+\frac{1}{2}J\dot{\theta}^{2}\right)dt+\\
-										 &+\int_{t_{1}}^{t_{2}}-\delta\left[\left(\frac{1}{2}\int_{0}^{L}EI\left(w^{''}\left(x,t\right)\right)^{2}dx+\int_{0}^{L}\rho g\cos{\theta\left(t\right)}w\left(x,t\right)dx\right)-Mgw_{e}\right]dt+\\ 
-										 &+\int_{t_{1}}^{t_{2}}\delta\left(N_{g}\tau\left(t\right)\delta\theta\left(t\right)\right)dt+\int_{t_{1}}^{t_{2}}\lambda\delta\phi dt=0\\ 
-										\end{aligned}
-									
+							<div class="fragment">
+							    		
+								\[
+									\delta\int_{t_{1}}^{t_{2}}\mathcal{L}^{ext}dt=0
+								\]
+								
+							</div>
+							<div class="fragment">
+							    		
+								\[
+									\int_{t_{1}}^{t_{2}}\sum_{i=0}^{n_{dof}}\delta q_{i}\left(\frac{\partial\mathcal{L}^{ext}}{\partial q_{i}}-\frac{d}{dt}\frac{\partial\mathcal{L}^{ext}}{\partial\dot{q}_{i}}\right)dt=0
+								\]
+								
+							</div>
+							<div class="fragment">
+							   	<small>
+								\[
+									\int_{t_{1}}^{t_{2}}\sum_{i=0}^{n_{dof}}\delta q_{i}\left[\left(\frac{\partial T}{\partial q_{i}}-\frac{d}{dt}\frac{\partial T}{\partial\dot{q}_{i}}\right)-\left(\frac{\partial\Pi}{\partial q_{i}}-\frac{d}{dt}\frac{\partial\Pi}{\partial\dot{q}_{i}}\right)+\left(\frac{\partial W}{\partial q_{i}}-\frac{d}{dt}\frac{\partial W}{\partial\dot{q}_{i}}\right)+\left(\frac{\partial\left(\lambda\phi\right)}{\partial q_{i}}-\frac{d}{dt}\frac{\partial\left(\lambda\phi\right)}{\partial\dot{q}_{i}}\right)\right]dt=0
 									\]
 								</small>
+								
 							</div>
-							<div class="fragment"> 
-							<small>
+							
+						</div>
+					</section>
+					<section>
+						<h3>Euler-Lagrange's equations</h3>
+						<div id="contentBox" style="margin:0px auto; width:100%">
+							<div>
+							    		
 								\[
 									\begin{aligned}
-										-\int_{t_{1}}^{t_{2}}&\left[\int_{0}^{L}\rho\left(x\ddot{\theta}-\ddot{w}\right)\left(x\delta\theta-\delta w\right)dx+M\left(L\ddot{\theta-\ddot{w}_{e}}\right)\left(L\delta\theta-\delta w_{e}\right)+J\ddot{\theta}\delta\theta+Mg\delta w_{e}\right]dt+\\
-										&-\int_{t_{1}}^{t_{2}}\left[\int_{0}^{L}EIw^{''}\delta w^{''}dx +\int_{0}^{L}\rho g\left(\cos{\theta}\delta w-w\sin{\theta}\delta\theta\right)dx - N_{g}\tau\delta\theta-\lambda\left(\frac{\partial\phi}{\partial\theta}\delta\theta+\frac{\partial\phi}{\partial w_{e}}\delta w_{e}\right)\right]dt=0
+										T=T\left(\dot{q}_{i}\right)&\qquad
+										\Pi=\Pi\left(q_{i}\right)\\
+										W=W\left(q_{i}\right)&\qquad
+										\phi=\phi\left(q_{i}\right)\\
 									\end{aligned}
 								\]
-							</small>
+								
+							</div>
+							<div class="fragment">
+								\[
+									\int_{t_{1}}^{t_{2}}\sum_{i=0}^{n_{dof}}\delta q_{i}\left[-\frac{d}{dt}\frac{\partial T}{\partial\dot{q}_{i}}-\frac{\partial\Pi}{\partial q_{i}}+\frac{\partial W}{\partial q_{i}}+\lambda\frac{\partial\phi}{\partial q_{i}}\right]dt=0
+									\]
+							</div>
+							<div class="fragment">
+							    		
+								\[
+									\mathbf{q}=\begin{bmatrix}
+										\theta\left(t\right)\\
+										w\left(x,t\right)\\
+										w\left(L,t\right)\\
+										w^{'}\left(L,t\right)
+									\end{bmatrix}
+								\]
+								
 							</div>
 						</div>
 					</section>
 					<section>
-						<h3>Hamilton's principle</h3>
+						<h3>Kinetic energy variation</h3>
+						<div id="contentBox" style="margin:0px auto; width:100%">
+							<div>
+							    		
+								\[
+									\int_{t_{1}}^{t_{2}}\sum_{i=0}^{n_{dof}}\delta q_{i}\left(-\frac{d}{dt}\frac{\partial T}{\partial\dot{q}_{i}}\right)dt=
+								\]
+								
+							</div>
+							<div class="fragment">
+							    <small>		
+								\[
+								\begin{aligned}
+									=&\int_{t_{1}}^{t_{2}}\left[\delta\theta\left(-\frac{d}{dt}\frac{\partial T}{\partial\dot{\theta}}\right)+\delta w\left(-\frac{d}{dt}\frac{\partial T}{\partial\dot{w}}\right)+\delta w_{e}\left(-\frac{d}{dt}\frac{\partial T}{\partial\dot{w}_{e}}\right)+\delta w^{'}_{e}\left(-\frac{d}{dt}\frac{\partial T}{\partial\dot{w}^{'}_{e}}\right)\right]dt\\&\text{with}\\
+									&T=\frac{1}{2}\int_{0}^{L}\rho\left(x\dot{\theta}\left(t\right)-\dot{w}\left(x,t\right)\right)^{2}dx+\frac{1}{2}M\left(L\dot{\theta}\left(t\right)-\dot{w}\left(L,t\right)\right)^{2}+\frac{1}{2}J\dot{\theta}\left(t\right)^{2}
+								\end{aligned}
+								\]
+								</small>	
+							</div>
+						</div>
+					</section>
+					<section>
+						<h3>Kinetic energy variation</h3>
+						<div id="contentBox" style="margin:0px auto; width:100%">
+							<div>
+							    <small>		
+								\[
+									\begin{aligned}
+									T&=\frac{1}{2}\int_{0}^{L}\rho\left(x\dot{\theta}\left(t\right)-\dot{w}\left(x,t\right)\right)^{2}dx+\frac{1}{2}M\left(L\dot{\theta}\left(t\right)-\dot{w}\left(L,t\right)\right)^{2}+\frac{1}{2}J\dot{\theta}\left(t\right)^{2}\\
+										\frac{\partial T}{\partial\dot{\theta}}&=\int_{0}^{L}\rho\left(x\dot{\theta}\left(t\right)-\dot{w}\left(x,t\right)\right)xdx+ML\left(L\dot{\theta}\left(t\right)-\dot{w}\left(L,t\right)\right)+J\dot{\theta}\left(t\right)\\
+										\frac{\partial T}{\partial\dot{w}}&=-\int_{0}^{L}\rho\left(x\dot{\theta}\left(t\right)-\dot{w}\left(x,t\right)\right)dx\\
+										\frac{\partial T}{\partial\dot{w}_{e}}&=-M\left(L\dot{\theta}\left(t\right)-\dot{w}\left(L,t\right)\right)\\
+										\frac{\partial T}{\partial\dot{w}^{'}_{e}}&=0
+									\end{aligned}
+									
+								\]
+								</small>	
+							</div>
+						</div>
+					</section>
+					<section>
+						<h3>Kinetic energy variation</h3>
+						<div id="contentBox" style="margin:0px auto; width:100%">
+							<div>
+							    <small>		
+								\[
+									\begin{aligned}
+										\frac{d}{dt}\frac{\partial T}{\partial\dot{\theta}}&=\int_{0}^{L}\rho\left(x\ddot{\theta}\left(t\right)-\ddot{w}\left(x,t\right)\right)xdx+ML\left(L\ddot{\theta}\left(t\right)-\ddot{w}\left(L,t\right)\right)+J\ddot{\theta}\left(t\right)\\
+										\frac{d}{dt}\frac{\partial T}{\partial\dot{w}}&=-\int_{0}^{L}\rho\left(x\ddot{\theta}\left(t\right)-\ddot{w}\left(x,t\right)\right)dx\\
+										\frac{d}{dt}\frac{\partial T}{\partial\dot{w}_{e}}&=-M\left(L\ddot{\theta}\left(t\right)-\ddot{w}\left(L,t\right)\right)\\
+										\frac{d}{dt}\frac{\partial T}{\partial\dot{w}^{'}_{e}}&=0
+									\end{aligned}
+									
+								\]
+								</small>	
+							</div>
+						</div>
+					</section>
+					<section>
+						<h3>Kinetic energy variation</h3>
+						<div id="contentBox" style="margin:0px auto; width:100%">
+							<div>
+							    <small>		
+								\[
+									\begin{aligned}
+										\delta T =& -\delta\theta\left[\int_{0}^{L}\rho\left(x\ddot{\theta}\left(t\right)-\ddot{w}\left(x,t\right)\right)xdx+ML\left(L\ddot{\theta}\left(t\right)-\ddot{w}\left(L,t\right)\right)+J\ddot{\theta}\left(t\right)\right]+\\
+										&+\delta w\left[\int_{0}^{L}\rho\left(x\ddot{\theta}\left(t\right)-\ddot{w}\left(x,t\right)\right)dx\right]+\delta w_{e}\left[M\left(L\ddot{\theta}\left(t\right)-\ddot{w}\left(L,t\right)\right)\right]
+										
+									\end{aligned}
+									
+								\]
+								</small>	
+							</div>
+						</div>
+					</section>
+					<section>
+						<h3>Integration by parts</h3>
+						<div id="contentBox" style="margin:0px auto; width:100%">
+							<div>
+							    <small>		
+								\[
+									\begin{aligned}
+									\Pi&=\frac{1}{2}\int_{0}^{L}EI\left(w^{''}\left(x,t\right)\right)^{2}dx-\int_{0}^{L}\rho g\cos{\theta\left(t\right)}w\left(x,t\right)dx-Mg\cos{\theta\left(t\right)}w\left(L,t\right)=\\
+										&=\frac{1}{2}EI\left[w^{''}\left(x,t\right)w^{'}\left(x,t\right)\right]_{0}^{L}-\frac{1}{2}\int_{0}^{L}EIw^{'''}\left(x,t\right)w^{'}\left(x,t\right)dx+\\-&\int_{0}^{L}\rho g\cos{\theta\left(t\right)}w\left(x,t\right)dx-Mg\cos{\theta\left(t\right)}w\left(L,t\right)=\\
+										&=\frac{1}{2}EI\left[w^{''}\left(x,t\right)w^{'}\left(x,t\right)\right]_{0}^{L}-\frac{1}{2}EI\left[w^{'''}\left(x,t\right)w\left(x,t\right)\right]_{0}^{L}+\frac{1}{2}\int_{0}^{L}EIw^{IV}\left(x,t\right)w\left(x,t\right)dx+\\-&\int_{0}^{L}\rho g\cos{\theta\left(t\right)}w\left(x,t\right)dx-Mg\cos{\theta\left(t\right)}w\left(L,t\right)=\\
+										&=\frac{1}{2}EI\left[w^{''}\left(L,t\right)w^{'}\left(L,t\right)-w^{''}\left(0,t\right)w^{'}\left(0,t\right)\right]-\frac{1}{2}EI\left[w^{'''}\left(L,t\right)w\left(L,t\right)-w^{'''}\left(0,t\right)w\left(0,t\right)\right]+\\&+\frac{1}{2}\int_{0}^{L}EIw^{IV}\left(x,t\right)w\left(x,t\right)dx-\int_{0}^{L}\rho g\cos{\theta\left(t\right)}w\left(x,t\right)dx-Mg\cos{\theta\left(t\right)}w\left(L,t\right)
+									\end{aligned}
+									
+								\]
+								</small>	
+							</div>
+						</div>
+					</section>
+					<section>
+						<h3>Integration by parts</h3>
+						<div id="contentBox" style="margin:0px auto; width:100%">
+							<div>
+							    <small>		
+								\[
+									\begin{aligned}
+									\Pi&=\frac{1}{2}\int_{0}^{L}EI\left(w^{''}\left(x,t\right)\right)^{2}dx-\int_{0}^{L}\rho g\cos{\theta\left(t\right)}w\left(x,t\right)dx-Mg\cos{\theta\left(t\right)}w\left(L,t\right)=\\
+										&=\frac{1}{2}EI\left[w^{''}\left(L,t\right)w^{'}\left(L,t\right)-w^{''}\left(0,t\right)w^{'}\left(0,t\right)\right]-\frac{1}{2}EI\left[w^{'''}\left(L,t\right)w\left(L,t\right)-w^{'''}\left(0,t\right)w\left(0,t\right)\right]+\\&+\frac{1}{2}\int_{0}^{L}EIw^{IV}\left(x,t\right)w\left(x,t\right)dx-\int_{0}^{L}\rho g\cos{\theta\left(t\right)}w\left(x,t\right)dx-Mg\cos{\theta\left(t\right)}w\left(L,t\right)=\\
+										&=\frac{1}{2}EIw^{''}\left(L,t\right)w^{'}\left(L,t\right)-\frac{1}{2}EIw^{'''}\left(L,t\right)w\left(L,t\right)+\frac{1}{2}\int_{0}^{L}EIw^{IV}\left(x,t\right)w\left(x,t\right)dx+\\
+										-&\int_{0}^{L}\rho g\cos{\theta\left(t\right)}w\left(x,t\right)dx-Mg\cos{\theta\left(t\right)}w\left(L,t\right)\\
+									\end{aligned}
+									
+								\]
+								</small>	
+							</div>
+						</div>
+					</section>
+					<section>
+						<h3>Potential energy variation</h3>
+						<div id="contentBox" style="margin:0px auto; width:100%">
+							<div>
+							    		
+								\[
+									\int_{t_{1}}^{t_{2}}\sum_{i=0}^{n_{dof}}\delta q_{i}\left(-\frac{\partial\Pi}{\partial q_{i}}\right)dt=
+								\]
+								
+							</div>
+							<div class="fragment">
+							    <small>		
+								\[
+								\begin{aligned}
+									=&\int_{t_{1}}^{t_{2}}\left[\delta\theta\left(-\frac{\partial\Pi}{\partial\theta}\right)+\delta w\left(-\frac{\partial\Pi}{\partial w}\right)+\delta w_{e}\left(-\frac{\partial\Pi}{\partial w_{e}}\right)+\delta w^{'}_{e}\left(-\frac{\partial\Pi}{\partial w^{'}_{e}}\right)\right]dt\\&\text{with}\\
+									\Pi&=\frac{1}{2}EIw^{''}\left(L,t\right)w^{'}\left(L,t\right)-\frac{1}{2}EIw^{'''}\left(L,t\right)w\left(L,t\right)+\frac{1}{2}\int_{0}^{L}EIw^{IV}\left(x,t\right)w\left(x,t\right)dx+\\
+										-&\int_{0}^{L}\rho g\cos{\theta\left(t\right)}w\left(x,t\right)dx-Mg\cos{\theta\left(t\right)}w\left(L,t\right)\\
+								\end{aligned}
+								\]
+								</small>	
+							</div>
+						</div>
+					</section>
+					<section>
+						<h3>Potential energy variation</h3>
+						<div id="contentBox" style="margin:0px auto; width:100%">
+							<div>
+							    <small>		
+								\[
+									\begin{aligned}
+									\Pi&=\frac{1}{2}w^{''}\left(L,t\right)w^{'}\left(L,t\right)-\frac{1}{2}w^{'''}\left(L,t\right)w\left(L,t\right)+\frac{1}{2}\int_{0}^{L}EIw^{IV}\left(x,t\right)w\left(x,t\right)dx+\\
+										-&\int_{0}^{L}\rho g\cos{\theta\left(t\right)}w\left(x,t\right)dx-Mg\cos{\theta\left(t\right)}w\left(L,t\right)\\
+										\frac{\partial\Pi}{\partial\theta}&=\int_{0}^{L}\rho g\sin{\theta\left(t\right)w\left(x,t\right)}dx+Mg\sin{\theta\left(t\right)w\left(x,t\right)}\\
+										\frac{\partial\Pi}{\partial w}&=\frac{1}{2}\int_{0}^{L}EIw^{IV}\left(x,t\right)dx-\int_{0}^{L}\rho g\cos{\theta\left(t\right)}dx\\
+										\frac{\partial\Pi}{\partial w_{e}}&=-\frac{1}{2}EIw^{'''}\left(L,t\right)-Mg\cos{\theta\left(t\right)}\\
+										\frac{\partial\Pi}{\partial w^{'}_{e}}&=\frac{1}{2}EIw^{''}\left(L,t\right)
+									\end{aligned}
+									
+								\]
+								</small>	
+							</div>
+						</div>
+					</section>
+					<section>
+						<h3>Potential energy variation</h3>
+						<div id="contentBox" style="margin:0px auto; width:100%">
+							<div>
+							    <small>		
+								\[
+									\begin{aligned}
+										\delta\Pi =& -\delta\theta\left[\int_{0}^{L}\rho g\sin{\theta\left(t\right)w\left(x,t\right)}dx+Mg\sin{\theta\left(t\right)w\left(x,t\right)}\right]+\\
+										&-\delta w\left[\frac{1}{2}\int_{0}^{L}EIw^{IV}\left(x,t\right)dx-\int_{0}^{L}\rho g\cos{\theta\left(t\right)}dx\right]+\\&-\delta w_{e}\left[-\frac{1}{2}EIw^{'''}\left(L,t\right)-Mg\cos{\theta\left(t\right)}\right]-\delta w_{e}^{'}\left[\frac{1}{2}EIw^{''}\left(L,t\right)\right]
+										
+									\end{aligned}
+									
+								\]
+								</small>	
+							</div>
+						</div>
+					</section>
+					<section>
+						<h3>Virtual work</h3>
+						<div id="contentBox" style="margin:0px auto; width:100%">
+							<div>
+							    		
+								\[
+									\int_{t_{1}}^{t_{2}}\sum_{i=0}^{n_{dof}}\delta q_{i}\left(\frac{\partial W}{\partial q_{i}}\right)dt=
+								\]
+								
+							</div>
+							<div class="fragment">
+							    <small>		
+								\[
+								\begin{aligned}
+									=&\int_{t_{1}}^{t_{2}}\left[\delta\theta\left(\frac{\partial W}{\partial\theta}\right)+\delta w\left(\frac{\partial W}{\partial w}\right)+\delta w_{e}\left(\frac{\partial W}{\partial w_{e}}\right)+\delta w^{'}_{e}\left(\frac{\partial W}{\partial w^{'}_{e}}\right)\right]dt\\&\text{with}\\
+									W&=N_{g}\tau\left(t\right)\theta\left(t\right)\\
+								\end{aligned}
+								\]
+								</small>	
+							</div>
+						</div>
+					</section>
+					<section>
+						<h3>Virtual work</h3>
+						<div id="contentBox" style="margin:0px auto; width:100%">
+							<div>
+							    \[
+									\begin{aligned}
+									W&=N_{g}\tau\left(t\right)\theta\left(t\right)\\
+										\frac{\partial W}{\partial\theta}&=N_{g}\tau\left(t\right)\\
+										\frac{\partial W}{\partial w}&=0\\
+										\frac{\partial W}{\partial w_{e}}&=0\\
+										\frac{\partial W}{\partial w^{'}_{e}}&=0
+									\end{aligned}
+									
+								\]	
+							</div>
+						</div>
+					</section>
+					<section>
+						<h3>Virtual work</h3>
+						<div id="contentBox" style="margin:0px auto; width:100%">
+							<div>
+							    \[
+									\delta W = \delta\theta N_{g}\tau\left(t\right)
+								\]	
+							</div>
+						</div>
+					</section>
+					<section>
+						<h3>Lagrange's multipliers</h3>
+						<div id="contentBox" style="margin:0px auto; width:100%">
+							<div>
+							    		
+								\[
+									\int_{t_{1}}^{t_{2}}\sum_{i=0}^{n_{dof}}\delta q_{i}\left(\lambda\frac{\partial\phi}{\partial q_{i}}\right)dt=
+								\]
+								
+							</div>
+							<div class="fragment">	
+								<small>
+								\[
+								\begin{aligned}
+									=&\int_{t_{1}}^{t_{2}}\left[\delta\theta\left(\lambda\frac{\partial\phi}{\partial\theta}\right)+\delta w\left(\lambda\frac{\partial\phi}{\partial w}\right)+\delta w_{e}\left(\lambda\frac{\partial\phi}{\partial w_{e}}\right)+\delta w^{'}_{e}\left(\lambda\frac{\partial\phi}{\partial w^{'}_{e}}\right)\right]dt\\&\text{with}\\
+									\phi&=\phi\left(\theta\left(t\right),w\left(L,t\right)\right)\\
+								\end{aligned}
+								\]
+								</small>
+							</div>
+						</div>
+					</section>
+					<section>
+						<h3>Lagrange's multipliers</h3>
+						<div id="contentBox" style="margin:0px auto; width:100%">
+							<div>
+							    \[
+									\begin{aligned}
+									\phi&=\phi\left(\theta\left(t\right),w\left(L,t\right)\right)\\
+										\frac{\partial\phi}{\partial\theta}&=\frac{\partial\phi}{\partial\theta}\\
+										\frac{\partial\phi}{\partial w}&=0\\
+										\frac{\partial\phi}{\partial w_{e}}&=\frac{\partial\phi}{\partial w_{e}}\\
+										\frac{\partial\phi}{\partial w^{'}_{e}}&=0
+									\end{aligned}
+									
+								\]	
+							</div>
+						</div>
+					</section>
+					<section>
+						<h3>Lagrange's multipliers</h3>
+						<div id="contentBox" style="margin:0px auto; width:100%">
+							<div>
+							    \[
+									\lambda\partial\phi= \delta\theta\lambda\frac{\partial\phi}{\partial\theta}+\delta w_{e}\lambda\frac{\partial\phi}{\partial w_{e}}
+								\]	
+							</div>
+						</div>
+					</section>
+					<section>
+						<h3>Overall variation</h3>
 						<div id="contentBox" style="margin:0px auto; width:100%">
 							<div> 
 								<small>
 									\[
 										\begin{aligned}
-											-\int_{t_{1}}^{t_{2}}&\left[\int_{0}^{L}\rho\left(x\ddot{\theta}-\ddot{w}\right)\left(x\delta\theta-\delta w\right)dx+M\left(L\ddot{\theta-\ddot{w}_{e}}\right)\left(L\delta\theta-\delta w_{e}\right)+J\ddot{\theta}\delta\theta+Mg\delta w_{e}\right]dt+\\
-											&-\int_{t_{1}}^{t_{2}}\left[\int_{0}^{L}EIw^{''}\delta w^{''}dx +\int_{0}^{L}\rho g\left(\cos{\theta}\delta w-w\sin{\theta}\delta\theta\right)dx - N_{g}\tau\delta\theta-\lambda\left(\frac{\partial\phi}{\partial\theta}\delta\theta+\frac{\partial\phi}{\partial w_{e}}\delta w_{e}\right)\right]dt=\\
-											&=0
-										\end{aligned}
-									\]
-								</small>
-							</div>
-							<div class="fragment"> 
-								<small>
-									\[
-										\begin{aligned}
-											-\int_{t_{1}}^{t_{2}}&\left[\left(\int_{0}^{L}\rho\left(x\ddot{\theta}-\ddot{w}-\frac{g}{x}\sin{\theta}w\right)xdx+M\left(L\ddot{\theta}-\ddot{w}_{e}\right)L+J\ddot{\theta}-N_{g}\tau-\lambda\frac{\partial\phi}{\partial\theta}\right)\delta\theta\right]dt+\\
-											-&\int_{t_{1}}^{t_{2}}\left[\int_{0}^{L}\left(\rho\left(-x\ddot{\theta}+\ddot{w}+g\cos{\theta}\right)+EIw^{'''}\right)\delta w dx+EIw_{e}^{''}\delta w_{e}^{'}\right]dt+\\
-											-&\int_{t_{1}}^{t_{2}}\left[\left(M\left(-L\ddot{\theta+\ddot{w}_{e}}\right)-EIw_{e}^{'''}+Mg-\lambda\frac{\partial\phi}{\partial w_{e}}\right)\delta w_{e}\right]dt=\\
-											&=0
+											\delta I &=-\int_{t_{1}}^{t_{2}}\delta\theta\left[\int_{0}^{L}\rho\left(x\ddot{\theta}\left(t\right)-\ddot{w}\left(x,t\right)\right)xdx+ML\left(L\ddot{\theta}\left(t\right)-\ddot{w}\left(L,t\right)\right)+J\ddot{\theta}\left(t\right)\right]dt+\\
+											&-\int_{t_{1}}^{t_{2}}\delta\theta\left[\int_{0}^{L}\rho g\sin{\theta\left(t\right)w\left(x,t\right)}dx+Mg\sin{\theta\left(t\right)w\left(x,t\right)}-N_{g}\tau\left(t\right)-\lambda\frac{\partial\phi}{\partial\theta}\right]dt+\\
+											&+\int_{t_{1}}^{t_{2}}\delta w\left[\int_{0}^{L}\rho\left(x\ddot{\theta}\left(t\right)-\ddot{w}\left(x,t\right)\right)dx  -\frac{1}{2}\int_{0}^{L}EIw^{IV}\left(x,t\right)dx+\int_{0}^{L}\rho g\cos{\theta\left(t\right)}dx\right]dt+\\
+											&+\int_{t_{1}}^{t_{2}}\delta w_{e}\left[  M\left(L\ddot{\theta}\left(t\right)-\ddot{w}\left(L,t\right)\right)+\frac{1}{2}EIw^{'''}\left(L,t\right)+Mg\cos{\theta\left(t\right)}+\frac{\partial\phi}{\partial w_{e}}\right]dt+\\
+											&+\int_{t_{1}}^{t_{2}}\delta w_{e}^{'}\left[  -EI\frac{1}{2}w^{''}\left(L,t\right)\right]dt=0
 										\end{aligned}
 									\]
 								</small>
@@ -524,23 +902,53 @@
 						</div>
 					</section>
 					<section>
-						<h3>Hamilton's principle</h3>
+						<h3>Overall variation</h3>
 						<div id="contentBox" style="margin:0px auto; width:100%">
-							<div> 
+							<div>
 								<small>
 									\[
 										\begin{aligned}
-											J\ddot{\theta}+\int_{0}^{L}\rho\left(x\ddot{\theta}-\ddot{w}-\frac{g}{x}\sin{\theta}w\right)xdx+M\left(L\ddot{\theta}-\ddot{w}_{e}\right)L&=N_{g}\tau+\lambda\frac{\partial\phi}{\partial\theta}\\
-											\ddot{w}+g\cos{\theta}+\frac{EI}{\rho}w^{'''} &= x\ddot{\theta}\\
-											M\left(-L\ddot{\theta}+\ddot{w}_{e}\right)-EIw_{e}^{'''}&=-Mg+\lambda\frac{\partial\phi}{\partial w_{e}}\\
-											EIw^{''}\left(L,t\right)&=0
+											\int_{0}^{L}&\rho\left(x\ddot{\theta}\left(t\right)-\ddot{w}\left(x,t\right)\right)xdx+ML\left(L\ddot{\theta}\left(t\right)-\ddot{w}\left(L,t\right)\right)+J\ddot{\theta}\left(t\right)+\\
+											&+\int_{0}^{L}\rho g\sin{\theta\left(t\right)w\left(x,t\right)}dx+Mg\sin{\theta\left(t\right)w\left(x,t\right)}-N_{g}\tau\left(t\right)-\lambda\frac{\partial\phi}{\partial\theta}=0\\
+											\int_{0}^{L}&\left[\rho\left(x\ddot{\theta}\left(t\right)-\ddot{w}\left(x,t\right)\right)  -\frac{1}{2}EIw^{IV}\left(x,t\right)+\rho g\cos{\theta\left(t\right)}\right]dx=0\\
+											M&\left(L\ddot{\theta}\left(t\right)-\ddot{w}\left(L,t\right)\right)+\frac{1}{2}EIw^{'''}\left(L,t\right)+Mg\cos{\theta\left(t\right)}+\frac{\partial\phi}{\partial w_{e}}=0\\
+											-&\frac{1}{2}EIw^{''}\left(L,t\right)=0
 										\end{aligned}
 									\]
 								</small>
 							</div>
-						</div>
+						<div>
 					</section>
 				</section>
+				<!--
+===========================================================================================================================
+					MOTION
+===========================================================================================================================
+-->
+				<section>
+					<section>
+						<h2>System's equations of motion</h2>
+					</section>
+					<section>
+						<h3>Hamiltonian form</h3>
+						<div id="contentBox" style="margin:0px auto; width:100%">
+							<div>
+								<small>
+									\[
+										\begin{aligned}
+											\int_{0}^{L}&\rho\left(x\ddot{\theta}\left(t\right)-\ddot{w}\left(x,t\right)\right)xdx+ML\left(L\ddot{\theta}\left(t\right)-\ddot{w}\left(L,t\right)\right)+J\ddot{\theta}\left(t\right)+\\
+											&+\int_{0}^{L}\rho g\sin{\theta\left(t\right)w\left(x,t\right)}dx+Mg\sin{\theta\left(t\right)w\left(x,t\right)}-N_{g}\tau\left(t\right)-\lambda\frac{\partial\phi}{\partial\theta}=0\\
+											\int_{0}^{L}&\left[\rho\left(x\ddot{\theta}\left(t\right)-\ddot{w}\left(x,t\right)\right)  -\frac{1}{2}EIw^{IV}\left(x,t\right)+\rho g\cos{\theta\left(t\right)}\right]dx=0\\
+											M&\left(L\ddot{\theta}\left(t\right)-\ddot{w}\left(L,t\right)\right)+\frac{1}{2}EIw^{'''}\left(L,t\right)+Mg\cos{\theta\left(t\right)}+\frac{\partial\phi}{\partial w_{e}}=0\\
+											-&\frac{1}{2}EIw^{''}\left(L,t\right)=0
+										\end{aligned}
+									\]
+								</small>
+							</div>
+						<div>
+					</section>
+				</section>
+				
 				<section>
 					<section>
 						<h2>Controller and Stability</h2>
@@ -583,6 +991,8 @@
 			});
 
 		</script>
-
+		
 	</body>
 </html>
+
+

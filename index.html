@@ -403,7 +403,7 @@
 										\[
 											\begin{aligned}
 												\phi\left(\theta\left(t\right),w\left(L,t\right)\right)&=X\frac{\partial\Phi}{\partial X}+Y\frac{\partial\Phi}{\partial Y}=\\
-												&=L\sin{\theta\left(t\right)-w\left(L,t\right)\sin{\theta\left(t\right)}}
+												&=L\sin{\theta\left(t\right)-w\left(L,t\right)\cos{\theta\left(t\right)}}
 											\end{aligned}
 										\]
 											
@@ -521,12 +521,12 @@
 						</div>
 					</section>
 					<section>
-						<h3>Potential energy</h3>
+						<h3>Potential</h3>
 						<div id="contentBox" style="margin:0px auto; width:100%">
 							<div>
 								<small>  		
 									\[
-										\Pi=\frac{1}{2}\int_{0}^{L}EI\left(w^{''}\left(x,t\right)\right)^{2}dx-\int_{0}^{L}\rho g\cos{\theta\left(t\right)}w\left(x,t\right)dx-Mgw\left(L,t\right)
+										\Pi=\frac{1}{2}\int_{0}^{L}EI\left(w^{''}\left(x,t\right)\right)^{2}dx-\int_{0}^{L}\rho g\cos{\theta\left(t\right)}w\left(x,t\right)dx-Mg\cos{\theta\left(t\right)}w\left(L,t\right)
 									\]
 								</small>	
 							</div>
@@ -726,7 +726,7 @@
 						</div>
 					</section>
 					<section>
-						<h3>Potential energy variation</h3>
+						<h3>Potential variation</h3>
 						<div id="contentBox" style="margin:0px auto; width:100%">
 							<div>
 							    		
@@ -749,7 +749,7 @@
 						</div>
 					</section>
 					<section>
-						<h3>Potential energy variation</h3>
+						<h3>Potential variation</h3>
 						<div id="contentBox" style="margin:0px auto; width:100%">
 							<div>
 							    <small>		
@@ -758,9 +758,9 @@
 									\Pi&=\frac{1}{2}w^{''}\left(L,t\right)w^{'}\left(L,t\right)-\frac{1}{2}w^{'''}\left(L,t\right)w\left(L,t\right)+\frac{1}{2}\int_{0}^{L}EIw^{IV}\left(x,t\right)w\left(x,t\right)dx+\\
 										-&\int_{0}^{L}\rho g\cos{\theta\left(t\right)}w\left(x,t\right)dx-Mg\cos{\theta\left(t\right)}w\left(L,t\right)\\
 										\frac{\partial\Pi}{\partial\theta}&=\int_{0}^{L}\rho g\sin{\theta\left(t\right)w\left(x,t\right)}dx+Mg\sin{\theta\left(t\right)w\left(x,t\right)}\\
-										\frac{\partial\Pi}{\partial w}&=\frac{1}{2}\int_{0}^{L}EIw^{IV}\left(x,t\right)dx-\int_{0}^{L}\rho g\cos{\theta\left(t\right)}dx\\
-										\frac{\partial\Pi}{\partial w_{e}}&=-\frac{1}{2}EIw^{'''}\left(L,t\right)-Mg\cos{\theta\left(t\right)}\\
-										\frac{\partial\Pi}{\partial w^{'}_{e}}&=\frac{1}{2}EIw^{''}\left(L,t\right)
+										\frac{\partial\Pi}{\partial w}&=\int_{0}^{L}EIw^{IV}\left(x,t\right)dx-\int_{0}^{L}\rho g\cos{\theta\left(t\right)}dx\\
+										\frac{\partial\Pi}{\partial w_{e}}&=-EIw^{'''}\left(L,t\right)-Mg\cos{\theta\left(t\right)}\\
+										\frac{\partial\Pi}{\partial w^{'}_{e}}&=EIw^{''}\left(L,t\right)
 									\end{aligned}
 									
 								\]
@@ -769,14 +769,14 @@
 						</div>
 					</section>
 					<section>
-						<h3>Potential energy variation</h3>
+						<h3>Potential variation</h3>
 						<div id="contentBox" style="margin:0px auto; width:100%">
 							<div>
 							    <small>		
 								\[
 									\begin{aligned}
 										\delta\Pi =& -\delta\theta\left[\int_{0}^{L}\rho g\sin{\theta\left(t\right)w\left(x,t\right)}dx+Mg\sin{\theta\left(t\right)w\left(x,t\right)}\right]+\\
-										&-\delta w\left[\frac{1}{2}\int_{0}^{L}EIw^{IV}\left(x,t\right)dx-\int_{0}^{L}\rho g\cos{\theta\left(t\right)}dx\right]+\\&-\delta w_{e}\left[-\frac{1}{2}EIw^{'''}\left(L,t\right)-Mg\cos{\theta\left(t\right)}\right]-\delta w_{e}^{'}\left[\frac{1}{2}EIw^{''}\left(L,t\right)\right]
+										&-\delta w\left[\int_{0}^{L}EIw^{IV}\left(x,t\right)dx-\int_{0}^{L}\rho g\cos{\theta\left(t\right)}dx\right]+\\&-\delta w_{e}\left[-EIw^{'''}\left(L,t\right)-Mg\cos{\theta\left(t\right)}\right]-\delta w_{e}^{'}\left[EIw^{''}\left(L,t\right)\right]
 										
 									\end{aligned}
 									
@@ -892,9 +892,9 @@
 										\begin{aligned}
 											\delta I &=-\int_{t_{1}}^{t_{2}}\delta\theta\left[\int_{0}^{L}\rho\left(x\ddot{\theta}\left(t\right)-\ddot{w}\left(x,t\right)\right)xdx+ML\left(L\ddot{\theta}\left(t\right)-\ddot{w}\left(L,t\right)\right)+J\ddot{\theta}\left(t\right)\right]dt+\\
 											&-\int_{t_{1}}^{t_{2}}\delta\theta\left[\int_{0}^{L}\rho g\sin{\theta\left(t\right)w\left(x,t\right)}dx+Mg\sin{\theta\left(t\right)w\left(x,t\right)}-N_{g}\tau\left(t\right)-\lambda\frac{\partial\phi}{\partial\theta}\right]dt+\\
-											&+\int_{t_{1}}^{t_{2}}\delta w\left[\int_{0}^{L}\rho\left(x\ddot{\theta}\left(t\right)-\ddot{w}\left(x,t\right)\right)dx  -\frac{1}{2}\int_{0}^{L}EIw^{IV}\left(x,t\right)dx+\int_{0}^{L}\rho g\cos{\theta\left(t\right)}dx\right]dt+\\
-											&+\int_{t_{1}}^{t_{2}}\delta w_{e}\left[  M\left(L\ddot{\theta}\left(t\right)-\ddot{w}\left(L,t\right)\right)+\frac{1}{2}EIw^{'''}\left(L,t\right)+Mg\cos{\theta\left(t\right)}+\frac{\partial\phi}{\partial w_{e}}\right]dt+\\
-											&+\int_{t_{1}}^{t_{2}}\delta w_{e}^{'}\left[  -EI\frac{1}{2}w^{''}\left(L,t\right)\right]dt=0
+											&+\int_{t_{1}}^{t_{2}}\delta w\left[\int_{0}^{L}\rho\left(x\ddot{\theta}\left(t\right)-\ddot{w}\left(x,t\right)\right)dx  -\int_{0}^{L}EIw^{IV}\left(x,t\right)dx+\int_{0}^{L}\rho g\cos{\theta\left(t\right)}dx\right]dt+\\
+											&+\int_{t_{1}}^{t_{2}}\delta w_{e}\left[  M\left(L\ddot{\theta}\left(t\right)-\ddot{w}\left(L,t\right)\right)+EIw^{'''}\left(L,t\right)+Mg\cos{\theta\left(t\right)}+\lambda\frac{\partial\phi}{\partial w_{e}}\right]dt+\\
+											&+\int_{t_{1}}^{t_{2}}\delta w_{e}^{'}\left[  -EIw^{''}\left(L,t\right)\right]dt=0
 										\end{aligned}
 									\]
 								</small>
@@ -910,8 +910,8 @@
 										\begin{aligned}
 											\int_{0}^{L}&\rho\left(x\ddot{\theta}\left(t\right)-\ddot{w}\left(x,t\right)\right)xdx+ML\left(L\ddot{\theta}\left(t\right)-\ddot{w}\left(L,t\right)\right)+J\ddot{\theta}\left(t\right)+\\
 											&+\int_{0}^{L}\rho g\sin{\theta\left(t\right)w\left(x,t\right)}dx+Mg\sin{\theta\left(t\right)w\left(x,t\right)}-N_{g}\tau\left(t\right)-\lambda\frac{\partial\phi}{\partial\theta}=0\\
-											\int_{0}^{L}&\left[\rho\left(x\ddot{\theta}\left(t\right)-\ddot{w}\left(x,t\right)\right)  -\frac{1}{2}EIw^{IV}\left(x,t\right)+\rho g\cos{\theta\left(t\right)}\right]dx=0\\
-											M&\left(L\ddot{\theta}\left(t\right)-\ddot{w}\left(L,t\right)\right)+\frac{1}{2}EIw^{'''}\left(L,t\right)+Mg\cos{\theta\left(t\right)}+\frac{\partial\phi}{\partial w_{e}}=0\\
+											\int_{0}^{L}&\left[\rho\left(x\ddot{\theta}\left(t\right)-\ddot{w}\left(x,t\right)\right)  -EIw^{IV}\left(x,t\right)+\rho g\cos{\theta\left(t\right)}\right]dx=0\\
+											M&\left(L\ddot{\theta}\left(t\right)-\ddot{w}\left(L,t\right)\right)+EIw^{'''}\left(L,t\right)+Mg\cos{\theta\left(t\right)}+\lambda\frac{\partial\phi}{\partial w_{e}}=0\\
 											-&\frac{1}{2}EIw^{''}\left(L,t\right)=0
 										\end{aligned}
 									\]
@@ -938,9 +938,217 @@
 										\begin{aligned}
 											\int_{0}^{L}&\rho\left(x\ddot{\theta}\left(t\right)-\ddot{w}\left(x,t\right)\right)xdx+ML\left(L\ddot{\theta}\left(t\right)-\ddot{w}\left(L,t\right)\right)+J\ddot{\theta}\left(t\right)+\\
 											&+\int_{0}^{L}\rho g\sin{\theta\left(t\right)w\left(x,t\right)}dx+Mg\sin{\theta\left(t\right)w\left(x,t\right)}-N_{g}\tau\left(t\right)-\lambda\frac{\partial\phi}{\partial\theta}=0\\
-											\int_{0}^{L}&\left[\rho\left(x\ddot{\theta}\left(t\right)-\ddot{w}\left(x,t\right)\right)  -\frac{1}{2}EIw^{IV}\left(x,t\right)+\rho g\cos{\theta\left(t\right)}\right]dx=0\\
-											M&\left(L\ddot{\theta}\left(t\right)-\ddot{w}\left(L,t\right)\right)+\frac{1}{2}EIw^{'''}\left(L,t\right)+Mg\cos{\theta\left(t\right)}+\frac{\partial\phi}{\partial w_{e}}=0\\
+											\int_{0}^{L}&\left[\rho\left(x\ddot{\theta}\left(t\right)-\ddot{w}\left(x,t\right)\right)  -EIw^{IV}\left(x,t\right)-\rho g\cos{\theta\left(t\right)}\right]dx=0\\
+											M&\left(L\ddot{\theta}\left(t\right)-\ddot{w}\left(L,t\right)\right)+EIw^{'''}\left(L,t\right)-Mg\cos{\theta\left(t\right)}+\lambda\frac{\partial\phi}{\partial w_{e}}=0\\
 											-&\frac{1}{2}EIw^{''}\left(L,t\right)=0
+										\end{aligned}
+									\]
+								</small>
+							</div>
+						<div>
+					</section>
+					<section>
+						<h3>Coordinates' transformation</h3>
+						<div id="contentBox" style="margin:0px auto; width:100%">
+							<div>
+								<small>
+									\[
+										\begin{aligned}
+											X&=L\cos{\theta+w_{e}\sin{\theta}}\\
+											Y&=L\sin{\theta-w_{e}\cos{\theta}}
+										\end{aligned}
+									\]
+								</small>
+							</div>
+							<div style="padding:10px;"></div>
+							<div class="fragment">
+								<small>
+									\[
+										\begin{aligned}
+											\mathbf{J}_{c}&=\begin{bmatrix}
+															\frac{\partial X}{\partial\theta}&\frac{\partial X}{\partial w_{e}}\\
+															\frac{\partial Y}{\partial\theta}&\frac{\partial Y}{\partial w_{e}}
+															\end{bmatrix}=\\
+														  &=\begin{bmatrix}
+															-L\sin{\theta}+w_{e}\cos{\theta}&\sin{\theta}\\
+															L\cos{\theta}+w_{e}\sin{\theta}&-\cos{\theta}
+															\end{bmatrix}\\
+										\end{aligned}
+									\]
+								</small>
+							</div>
+						<div>
+					</section>
+					<section>
+						<h3>Control force</h3>
+						<div id="contentBox" style="margin:0px auto; width:100%">
+							<div>
+								<small>
+									\[
+										\mathbf{J}_{c}^{T}u\left(t\right)\mathbf{n}=\lambda\begin{bmatrix}
+																							\frac{\partial\phi}{\partial\theta}\\
+																							\frac{\partial\phi}{\partial w_{e}}
+																							\end{bmatrix}
+									\]
+								</small>
+							</div>
+							<div style="padding:10px;"></div>
+							<div class="fragment">
+								<small>
+									\[
+										\begin{bmatrix}
+											-L\sin{\theta}+w_{e}\cos{\theta}&\sin{\theta}\\
+											L\cos{\theta}+w_{e}\sin{\theta}&-\cos{\theta}
+										\end{bmatrix}^{T}u\left(t\right)\begin{bmatrix}
+																			0\\
+																			1
+																		\end{bmatrix}=\lambda\begin{bmatrix}
+																								L\cos{\theta}+w_{e}\sin{\theta}\\
+																								-\cos{\theta}
+																							  \end{bmatrix}
+									\]
+								</small>
+							</div>
+							<div style="padding:10px;"></div>
+							<div class="fragment">
+								<small>
+									\[
+										\begin{bmatrix}
+											-L\sin{\theta}+w_{e}\cos{\theta}&L\cos{\theta}+w_{e}\sin{\theta}\\
+											\sin{\theta}&-\cos{\theta}
+										\end{bmatrix}\begin{bmatrix}
+																			0\\
+																			1
+																		\end{bmatrix}u\left(t\right)=\lambda\begin{bmatrix}
+																								L\cos{\theta}+w_{e}\sin{\theta}\\
+																								-\cos{\theta}
+																							  \end{bmatrix}
+									\]
+								</small>
+							</div>
+							<div style="padding:10px;"></div>
+							<div class="fragment">
+								<small>
+									\[
+										\begin{bmatrix}
+											L\cos{\theta}+w_{e}\sin{\theta}\\
+											-\cos{\theta}
+										\end{bmatrix}u\left(t\right)=\lambda\begin{bmatrix}
+																								L\cos{\theta}+w_{e}\sin{\theta}\\
+																								-\cos{\theta}
+																							  \end{bmatrix}
+									\]
+								</small>
+							</div>
+							<div style="padding:10px;"></div>
+							<div class="fragment">
+								<small>
+									\[
+										u\left(t\right)=\lambda
+									\]
+								</small>
+							</div>
+						<div>
+					</section>
+					<section>
+						<h3>Small amplitude approximation</h3>
+						<div id="contentBox" style="margin:0px auto; width:100%">
+							<div>
+								<small>
+									\[
+										\begin{aligned}
+											\theta\left(t\right)&\sim o\left(t\right)\\
+											w\left(x,t\right)&\sim o\left(x,t\right)
+										\end{aligned}
+									\]
+								</small>
+							</div>
+							<div style="padding:10px;"></div>
+							<div class="fragment">
+								<small>
+									\[
+										\begin{aligned}
+											\cos{\theta}&\approx 1\\
+											\sin{\theta}&\approx\theta
+										\end{aligned}
+									\]
+								</small>
+							</div>
+							<div style="padding:10px;"></div>
+							<div class="fragment">
+								<small>
+									\[
+										w^{n}\theta^{m}\sim o^{n+m}\left(x,t\right)\approx 0\qquad n,m\geq 1
+									\]
+								</small>
+							</div>
+						<div>
+					</section>
+					<section>
+						<h3>From Hamiltonian form to state-space formulation</h3>
+						<div id="contentBox" style="margin:0px auto; width:100%">
+							<div>
+								<small>
+									\[
+										\begin{aligned}
+											J&\ddot{\theta}\left(t\right)+\int_{0}^{L}\rho\left(x\ddot{\theta}\left(t\right)-\ddot{w}\left(x,t\right)\right)xdx+ML\left(L\ddot{\theta}\left(t\right)-\ddot{w}\left(L,t\right)\right)+\\
+											&+\int_{0}^{L}\rho g\sin{\theta\left(t\right)w\left(x,t\right)}dx+Mg\sin{\theta\left(t\right)w\left(x,t\right)}=N_{g}\tau\left(t\right)+\lambda\frac{\partial\phi}{\partial\theta}\\
+											\ddot{w}&\left(x,t\right) +\frac{EI}{\rho}w^{IV}\left(x,t\right)=x\ddot{\theta}-g\cos{\theta\left(t\right)}\\
+											M&\left(L\ddot{\theta}\left(t\right)-\ddot{w}\left(L,t\right)\right)+EIw^{'''}\left(L,t\right)-Mg\cos{\theta\left(t\right)}+\lambda\frac{\partial\phi}{\partial w_{e}}=0\\
+											w^{''}&\left(L,t\right)=0
+										\end{aligned}
+									\]
+								</small>
+							</div>
+						<div>
+					</section>
+					<section>
+						<h3>From Hamiltonian form to state-space formulation</h3>
+						<div id="contentBox" style="margin:0px auto; width:100%">
+							<div>
+								<small>
+									\[
+										\begin{aligned}
+											J&\ddot{\theta}\left(t\right)+\int_{0}^{L}\rho\left(x\ddot{\theta}\left(t\right)-\ddot{w}\left(x,t\right)\right)xdx+ML\left(L\ddot{\theta}\left(t\right)-\ddot{w}\left(L,t\right)\right)+\\
+											&+\int_{0}^{L}\rho g\sin{\theta\left(t\right)w\left(x,t\right)}dx+Mg\sin{\theta\left(t\right)w\left(x,t\right)}=N_{g}\tau\left(t\right)+\lambda\frac{\partial\phi}{\partial\theta}\\
+											\ddot{w}&\left(x,t\right) +\frac{EI}{\rho}w^{IV}\left(x,t\right)=x\ddot{\theta}-g\cos{\theta\left(t\right)}\\
+											M&\left(L\ddot{\theta}\left(t\right)-\ddot{w}\left(L,t\right)\right)+EIw^{'''}\left(L,t\right)=u\left(t\right)\cos{\theta}+Mg\cos{\theta\left(t\right)}\\
+											w^{''}&\left(L,t\right)=0
+										\end{aligned}
+									\]
+								</small>
+							</div>
+						<div>
+					</section>
+					<section>
+						<h3>From Hamiltonian form to state-space formulation</h3>
+						<div id="contentBox" style="margin:0px auto; width:100%">
+							<div>
+								<small>
+									\[
+										\begin{aligned}
+											J&\ddot{\theta}\left(t\right)+\int_{0}^{L}\rho\left(x\ddot{\theta}\left(t\right)-\ddot{w}\left(x,t\right)\right)xdx+ML\left(L\ddot{\theta}\left(t\right)-\ddot{w}\left(L,t\right)\right)+\\
+											&=N_{g}\tau\left(t\right)+\lambda\frac{\partial\phi}{\partial\theta}\\
+											\ddot{w}&\left(x,t\right) +\frac{EI}{\rho}w^{IV}\left(x,t\right)=x\ddot{\theta}-g\\
+											M&\left(L\ddot{\theta}\left(t\right)-\ddot{w}\left(L,t\right)\right)+EIw^{'''}\left(L,t\right)=u\left(t\right)+Mg\\
+											w^{''}&\left(L,t\right)=0
+										\end{aligned}
+									\]
+								</small>
+							</div>
+						<div>
+					</section>
+					<section>
+						<h3>From Hamiltonian form to state-space formulation</h3>
+						<div id="contentBox" style="margin:0px auto; width:100%">
+							<div>
+								<small>
+									\[
+										\begin{aligned}
+											J&\ddot{\theta}\left(t\right)+\int_{0}^{L}\rho\left(x\ddot{\theta}\left(t\right)-\ddot{w}\left(x,t\right)\right)xdx+ML\left(L\ddot{\theta}\left(t\right)-\ddot{w}\left(L,t\right)\right)+\\
+											&=N_{g}\tau\left(t\right)+\lambda\frac{\partial\phi}{\partial\theta}\\
+											\ddot{w}&\left(x,t\right) +\frac{EI}{\rho}w^{IV}\left(x,t\right)=x\ddot{\theta}-g\\
+											M&\left(L\ddot{\theta}\left(t\right)-\ddot{w}\left(L,t\right)\right)+EIw^{'''}\left(L,t\right)=u\left(t\right)+Mg\\
 										\end{aligned}
 									\]
 								</small>

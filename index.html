@@ -71,7 +71,7 @@
 
 				<section>
 					<h2>Abstract</h2>
-					<p>some content</p>
+					<p>The closed-loop system presented in the paper <span style="font-style:italic;">Bending moment-based force control of flexible arm under gravity</span> is explained and derived in detail. Assumptions are stated clearly and references to background knowledge and facts are presented.</p>
 					<h2>Keywords</h2>
 					<p>flexible arm, Euler-Bernoulli beam, estimation, control, stability</p>
 				</section>
@@ -1085,7 +1085,7 @@
 						<div>
 					</section>
 					<section>
-						<h3>From Hamiltonian form to state-space formulation</h3>
+						<h3>From Hamiltonian form to control formulation</h3>
 						<div id="contentBox" style="margin:0px auto; width:100%">
 							<div>
 								<small>
@@ -1103,7 +1103,7 @@
 						<div>
 					</section>
 					<section>
-						<h3>From Hamiltonian form to state-space formulation</h3>
+						<h3>From Hamiltonian form to control formulation</h3>
 						<div id="contentBox" style="margin:0px auto; width:100%">
 							<div>
 								<small>
@@ -1121,13 +1121,13 @@
 						<div>
 					</section>
 					<section>
-						<h3>From Hamiltonian form to state-space formulation</h3>
+						<h3>From Hamiltonian form to control formulation</h3>
 						<div id="contentBox" style="margin:0px auto; width:100%">
 							<div>
 								<small>
 									\[
 										\begin{aligned}
-											J&\ddot{\theta}\left(t\right)+\int_{0}^{L}\rho\left(x\ddot{\theta}\left(t\right)-\ddot{w}\left(x,t\right)\right)xdx+ML\left(L\ddot{\theta}\left(t\right)-\ddot{w}\left(L,t\right)\right)+\\
+											J&\ddot{\theta}\left(t\right)+\int_{0}^{L}\rho\left(x\ddot{\theta}\left(t\right)-\ddot{w}\left(x,t\right)\right)xdx+ML\left(L\ddot{\theta}\left(t\right)-\ddot{w}\left(L,t\right)\right)=\\
 											&=N_{g}\tau\left(t\right)+\lambda\frac{\partial\phi}{\partial\theta}\\
 											\ddot{w}&\left(x,t\right) +\frac{EI}{\rho}w^{IV}\left(x,t\right)=x\ddot{\theta}-g\\
 											M&\left(L\ddot{\theta}\left(t\right)-\ddot{w}\left(L,t\right)\right)+EIw^{'''}\left(L,t\right)=u\left(t\right)+Mg\\
@@ -1139,16 +1139,148 @@
 						<div>
 					</section>
 					<section>
-						<h3>From Hamiltonian form to state-space formulation</h3>
+						<h3>From Hamiltonian form to control formulation</h3>
 						<div id="contentBox" style="margin:0px auto; width:100%">
 							<div>
 								<small>
 									\[
 										\begin{aligned}
-											J&\ddot{\theta}\left(t\right)+\int_{0}^{L}\rho\left(x\ddot{\theta}\left(t\right)-\ddot{w}\left(x,t\right)\right)xdx+ML\left(L\ddot{\theta}\left(t\right)-\ddot{w}\left(L,t\right)\right)+\\
+											J&\ddot{\theta}\left(t\right)+\int_{0}^{L}\rho\left(x\ddot{\theta}\left(t\right)-\ddot{w}\left(x,t\right)\right)xdx+ML\left(L\ddot{\theta}\left(t\right)-\ddot{w}\left(L,t\right)\right)=\\
 											&=N_{g}\tau\left(t\right)+\lambda\frac{\partial\phi}{\partial\theta}\\
-											\ddot{w}&\left(x,t\right) +\frac{EI}{\rho}w^{IV}\left(x,t\right)=x\ddot{\theta}-g\\
-											M&\left(L\ddot{\theta}\left(t\right)-\ddot{w}\left(L,t\right)\right)+EIw^{'''}\left(L,t\right)=u\left(t\right)+Mg\\
+											\rho&\left(x\ddot{\theta}\left(t\right)-\ddot{w}\left(x,t\right)\right)=EIw^{IV}\left(x,t\right)+\rho g\\
+											M&\left(L\ddot{\theta}\left(t\right)-\ddot{w}\left(L,t\right)\right)=u\left(t\right)+Mg-EIw^{'''}\left(L,t\right)\\
+										\end{aligned}
+									\]
+								</small>
+							</div>
+						<div>
+					</section>
+					<section>
+						<h3>From Hamiltonian form to control formulation</h3>
+						<div id="contentBox" style="margin:0px auto; width:100%">
+							<div>
+								<small>
+									\[
+										\begin{aligned}
+											J&\ddot{\theta}\left(t\right)+\int_{0}^{L}EIw^{IV}\left(x,t\right)xdx+\int_{0}^{L}\rho gxdx+u\left(t\right)L+MgL-EILw^{'''}\left(L,t\right)=\\
+											&=N_{g}\tau\left(t\right)+\lambda\frac{\partial\phi}{\partial\theta}
+										\end{aligned}
+									\]
+								</small>
+							</div>
+							<div style="padding:10px;"></div>
+							<div class="fragment">
+								<small>
+									\[
+										\begin{aligned}
+											J&\ddot{\theta}\left(t\right)+\left[EIw^{'''}x\right]_{0}^{L}-\int_{0}^{L}EIw^{'''}\left(x,t\right)dx+\frac{1}{2}\rho gL^{2} +u\left(t\right)L+MgL-EILw^{'''}\left(L,t\right)=\\
+											&=N_{g}\tau\left(t\right)+\lambda\frac{\partial\phi}{\partial\theta}
+										\end{aligned}
+									\]
+								</small>
+							</div>
+							<div style="padding:10px;"></div>
+							<div class="fragment">
+								<small>
+									\[
+										\begin{aligned}
+											J&\ddot{\theta}\left(t\right)+EILw^{'''}\left(L,t\right)-\left[EIw^{''}\left(x,t\right)\right]_{0}^{L}+\frac{1}{2}\rho gL^{2} +u\left(t\right)L+MgL-EILw^{'''}\left(L,t\right)=\\
+											&=N_{g}\tau\left(t\right)+\lambda\frac{\partial\phi}{\partial\theta}
+										\end{aligned}
+									\]
+								</small>
+							</div>
+						<div>
+					</section>
+					<section>
+						<h3>From Hamiltonian form to control formulation</h3>
+						<div id="contentBox" style="margin:0px auto; width:100%">
+							<div>
+								<small>
+									\[
+										J\ddot{\theta}\left(t\right)-EIw^{''}\left(L,t\right)+EIw^{''}\left(0,t\right)+\frac{1}{2}\rho gL^{2} +u\left(t\right)L+MgL=N_{g}\tau\left(t\right)+\lambda\frac{\partial\phi}{\partial\theta}
+
+									\]
+								</small>
+							</div>
+							<div style="padding:10px;"></div>
+							<div class="fragment">
+								<small>
+									\[
+										J\ddot{\theta}\left(t\right)=N_{g}\tau\left(t\right)-EIw^{''}\left(0,t\right)-\left(\frac{1}{2}\rho gL^{2} +u\left(t\right)L+MgL\right)+\lambda\frac{\partial\phi}{\partial\theta}
+
+									\]
+								</small>
+							</div>
+							<div style="padding:10px;"></div>
+							<div class="fragment">
+								<small>
+									\[
+										\begin{aligned}
+											J\ddot{\theta}\left(t\right)=&N_{g}\tau\left(t\right)-EIw^{''}\left(0,t\right)-\left(\frac{1}{2}\rho gL^{2} +u\left(t\right)L+MgL\right)+\\&+u\left(t\right)\left(L\cos{\theta\left(t\right)+w\left(L,t\right)\sin{\theta\left(t\right)}}\right)
+										\end{aligned}
+									\]
+								</small>
+							</div>
+							<div style="padding:10px;"></div>
+							<div class="fragment">
+								<small>
+									\[
+										J\ddot{\theta}\left(t\right)=N_{g}\tau\left(t\right)-EIw^{''}\left(0,t\right)-\left(\frac{1}{2}\rho gL+Mg\right)L
+
+									\]
+								</small>
+							</div>
+						<div>
+					</section>
+					<section>
+						<h3>From Hamiltonian form to control formulation</h3>
+						<div id="contentBox" style="margin:0px auto; width:100%">
+							<div style="padding:10px;"></div>
+							<div>
+								<small>
+									\[
+										M\left(L\ddot{\theta}\left(t\right)-\ddot{w}\left(L,t\right)\right)+EIw^{'''}\left(L,t\right)=u\left(t\right)+Mg
+									\]
+								</small>
+							</div>
+							<div style="padding:10px;"></div>
+							<div class="fragment">
+								<small>
+									\[
+										\Phi=L\theta\left(t\right)-w\left(L,t\right)=0
+									\]
+								</small>
+							</div>
+							<div style="padding:10px;"></div>
+							<div class="fragment">
+								<small>
+									\[
+										\ddot{\Phi}=L\ddot{\theta}\left(t\right)-\ddot{w}\left(L,t\right)=0
+									\]
+								</small>
+							</div>
+							<div style="padding:10px;"></div>
+							<div class="fragment">
+								<small>
+									\[
+									u\left(t\right)=EIw^{'''}\left(L,t\right)-Mg
+									\]
+								</small>
+							</div>
+					</section>
+					<section>
+						<h3>Control formulation</h3>
+						<div id="contentBox" style="margin:0px auto; width:100%">
+							<div>
+								<small>
+									\[
+										\begin{aligned}
+											&\ddot{w}\left(x,t\right)+\frac{EI}{\rho}w^{IV}\left(x,t\right)=x\ddot{\theta}\left(t\right)-g\\
+											&J\ddot{\theta}\left(t\right)=N_{g}\tau\left(t\right)-EIw^{''}\left(0,t\right)-\left(\frac{1}{2}\rho gL+Mg\right)L\\
+											&u\left(t\right)=EIw^{'''}\left(L,t\right)-Mg\\
+											&w\left(0,t\right)=0\qquad w^{'}\left(0,t\right)=0\\
+											&w^{''}\left(L,t\right)=0
 										\end{aligned}
 									\]
 								</small>
@@ -1159,10 +1291,458 @@
 				
 				<section>
 					<section>
-						<h2>Controller and Stability</h2>
+						<h2>Homogeneous formulation</h2>
+					</section>
+					<section>
+						<h3>Control formulation</h3>
+						<div id="contentBox" style="margin:0px auto; width:100%">
+							<div>
+								<small>
+									\[
+										\begin{aligned}
+											&\ddot{w}\left(x,t\right)+\frac{EI}{\rho}w^{IV}\left(x,t\right)=x\ddot{\theta}\left(t\right)-g\\
+											&J\ddot{\theta}\left(t\right)=N_{g}\tau\left(t\right)-EIw^{''}\left(0,t\right)-\left(\frac{1}{2}\rho gL+Mg\right)L\\
+											&u\left(t\right)=EIw^{'''}\left(L,t\right)-Mg\\
+											&w\left(0,t\right)=0\qquad w^{'}\left(0,t\right)=0\\
+											&w^{''}\left(L,t\right)=0
+										\end{aligned}
+									\]
+								</small>
+							</div>
+						<div>
+					</section>
+					<section>
+						<h3>Change of variables</h3>
+						<div id="contentBox" style="margin:0px auto; width:100%">
+							<div>
+								<small>
+									\[
+										\ddot{w}\left(x,t\right)-x\ddot{\theta}\left(t\right)+\frac{EI}{\rho}w^{IV}\left(x,t\right)+g=0
+									\]
+								</small>
+							</div>
+							<div style="padding:10px;"></div>
+							<div class="fragment">
+								<small>
+									\[
+										\ddot{z}\left(x,t\right)+\frac{EI}{\rho}z^{IV}\left(x,t\right)=0
+									\]
+								</small>
+							</div>
+							<div style="padding:10px;"></div>
+							<div class="fragment">
+								<small>
+									\[
+										z\left(x,t\right)=w\left(x,t\right)-x\theta\left(t\right)
+									\]
+								</small>
+							</div>
+							<div style="padding:10px;"></div>
+							<div class="fragment">
+								<small>
+									\[
+										\ddot{z}\left(x,t\right)+\frac{EI}{\rho}z^{IV}\left(x,t\right)=\ddot{w}\left(x,t\right)-x\ddot{\theta}\left(t\right)+\frac{EI}{\rho}w^{IV}\left(x,t\right)
+									\]
+								</small>
+							</div>
+							<div style="padding:10px;"></div>
+							<div class="fragment">
+								<small>
+									\[
+										z\left(x,t\right)=w\left(x,t\right)-x\theta\left(t\right)+v\left(x,t\right)\quad\text{with}\quad \frac{EI}{\rho}v^{IV}\left(x,t\right)=g
+									\]
+								</small>
+							</div>
+						<div>
+					</section>
+					<section>
+						<h3>Change of variables</h3>
+						<div id="contentBox" style="margin:0px auto; width:100%">
+							<div>
+								<small>
+									\[
+										\frac{EI}{\rho}v^{IV}\left(x,t\right)=g
+									\]
+								</small>
+							</div>
+							<div style="padding:10px;"></div>
+							<div class="fragment">
+								<small>
+									\[
+										\frac{EI}{\rho}v^{'''}\left(x,t\right)=gx+c_{1}
+									\]
+								</small>
+							</div>
+							<div style="padding:10px;"></div>
+							<div class="fragment">
+								<small>
+									\[
+										\frac{EI}{\rho}v^{''}\left(x,t\right)=\frac{1}{2}gx^{2}+c_{1}x+c_{2}
+									\]
+								</small>
+							</div>
+							<div style="padding:10px;"></div>
+							<div class="fragment">
+								<small>
+									\[
+										\frac{EI}{\rho}v^{'}\left(x,t\right)=\frac{1}{6}gx^{3}+\frac{1}{2}c_{1}x^{2}+c_{2}x+c_{3}
+									\]
+								</small>
+							</div>
+							<div style="padding:10px;"></div>
+							<div class="fragment">
+								<small>
+									\[
+										\frac{EI}{\rho}v\left(x,t\right)=\frac{1}{24}gx^{4}+\frac{1}{6}c_{1}x^{3}+\frac{1}{2}c_{2}x^{2}+c_{3}x+c_{4}
+									\]
+								</small>
+							</div>
+						<div>
+					</section>
+					<section>
+						<h3>Change of variables</h3>
+						<div id="contentBox" style="margin:0px auto; width:100%">
+							<div>
+								<small>
+									\[
+										\begin{aligned}
+											&w\left(0,t\right)=0\quad\Longleftrightarrow\quad z\left(0,t\right)=0\\
+											&z\left(0,t\right)=w\left(0,t\right)-0\cdot\theta\left(t\right)+v\left(0,t\right)=0\\
+											&v\left(0,t\right)=0
+										\end{aligned}
+									\]
+								</small>
+							</div>
+							<div style="padding:15px;"></div>
+							<div class="fragment">
+								<small>
+									\[
+										\begin{aligned}
+											&\Phi=L\theta\left(t\right)-w\left(L,t\right)=0\quad\Longleftrightarrow\quad z\left(L,t\right)=0\\
+											&z\left(L,t\right)=w\left(L,t\right)-L\cdot\theta\left(t\right)+v\left(L,t\right)=0\\
+											&v\left(L,t\right)=0
+										\end{aligned}
+									\]
+								</small>
+							</div>
+							<div style="padding:15px;"></div>
+							<div class="fragment">
+								<small>
+									\[
+										\begin{aligned}
+											&z^{''}\left(0,t\right)=w^{''}\left(0,t\right)\quad\Longleftrightarrow\quad v^{''}\left(0,t\right)=0\\
+											&z^{''}\left(L,t\right)=w^{''}\left(L,t\right)\quad\Longleftrightarrow\quad v^{''}\left(L,t\right)=0
+										\end{aligned}
+									\]
+								</small>
+							</div>
+						<div>
+					</section>
+					<section>
+						<h3>Change of variables</h3>
+						<div id="contentBox" style="margin:0px auto; width:100%">
+							<div>
+								<small>
+									\[
+										v\left(0,t\right)=\frac{\rho}{EI}c_{4}=0\quad\Longleftrightarrow\quad c_{4}=0
+									\]
+								</small>
+							</div>
+							<div style="padding:15px;"></div>
+							<div class="fragment">
+								<small>
+									\[
+										v^{''}\left(0,t\right)=\frac{\rho}{EI}c_{2}=0\quad\Longleftrightarrow\quad c_{2}=0
+									\]
+								</small>
+							</div>
+							<div style="padding:15px;"></div>
+							<div class="fragment">
+								<small>
+									\[
+										v^{''}\left(L,t\right)=\frac{\rho}{EI}\left(\frac{1}{2}gL^{2}+c_{1}L\right)=0\quad\Longleftrightarrow\quad c_{1}=-\frac{1}{2}gL
+									\]
+								</small>
+							</div>
+							<div style="padding:15px;"></div>
+							<div class="fragment">
+								<small>
+									\[
+										v\left(L,t\right)=\frac{\rho}{EI}\left(\frac{1}{24}gL^{4}-\frac{1}{12}gL^{4}+c_{3}L\right)=0\quad\Longleftrightarrow\quad c_{3}=\frac{1}{24}gL^{3}
+									\]
+								</small>
+							</div>
+						<div>
+					</section>
+					<section>
+						<h3>Change of variables</h3>
+						<div id="contentBox" style="margin:0px auto; width:100%">
+							<div>
+								<small>
+									\[
+										v\left(x,t\right)=\frac{\rho gx}{12EI}\left(\frac{1}{2}x^{3}- L x^{2}+\frac{1}{2} L^{3}\right)
+									\]
+								</small>
+							</div>
+							<div style="padding:15px;"></div>
+							<div class="fragment">
+								<small>
+									\[
+										z\left(x,t\right)=w\left(x,t\right)-x\theta\left(t\right)+\frac{\rho gx}{12EI}\left(\frac{1}{2}x^{3}- L x^{2}+\frac{1}{2} L^{3}\right)
+									\]
+								</small>
+							</div>
+							
+						<div>
+					</section>
+					<section>
+						<h3>Change of variables</h3>
+						<div id="contentBox" style="margin:0px auto; width:100%">
+							<div>
+								<small>
+									\[
+										\ddot{z}\left(x,t\right)=\ddot{w}\left(x,t\right)-x\ddot{\theta}\left(t\right)
+									\]
+								</small>
+							</div>
+							<div style="padding:15px;"></div>
+							<div class="fragment">
+								<small>
+									\[
+										z^{IV}\left(x,t\right)=w^{IV}\left(x,t\right)+\frac{\rho g}{EI}
+									\]
+								</small>
+							</div>
+							<div style="padding:15px;"></div>
+							<div class="fragment">
+								<small>
+									\[
+										\ddot{z}^{'}\left(0,t\right)=\frac{d}{dt^{2}}w\left(0,t\right)-\ddot{\theta}\left(t\right)=-\ddot{\theta}\left(t\right)
+									\]
+								</small>
+							</div>
+							<div style="padding:15px;"></div>
+							<div class="fragment">
+								<small>
+									\[
+										z^{'''}\left(L,t\right)=w^{'''}\left(L,t\right)+\frac{\rho gL}{2EI}\quad\Longleftrightarrow\quad EIw^{'''}\left(L,t\right)=EIz^{'''}\left(L,t\right) -\frac{\rho gL}{2}
+									\]
+								</small>
+							</div>
+						<div>
+					</section>
+					<section>
+						<h3>Homogeneous system</h3>
+						<div id="contentBox" style="margin:0px auto; width:100%">
+							<div>
+								<small>
+									\[
+										\begin{aligned}
+											&\ddot{z}\left(x,t\right)+\frac{EI}{\rho}z^{IV}\left(x,t\right)=0\\
+											&J\ddot{z}^{'}\left(0,t\right)=N_{g}\tau\left(t\right)-EIz^{''}\left(0,t\right)-\left(\frac{1}{2}\rho gL+Mg\right)L\\
+											&u\left(t\right)=EIz^{'''}\left(L,t\right)-Mg-\frac{\rho gL}{2}\\
+											&z\left(0,t\right)=0\qquad z\left(L,t\right)=0\\
+											&z^{''}\left(L,t\right)=0
+										\end{aligned}
+									\]
+								</small>
+							</div>
+						<div>
+					</section>
+				</section>
+				
+				<section>
+					<section>
+						<h2>Controller</h2>
 					</section>
 					<section>
 						<h3>Control objective</h3>
+							<div id="contentBox" style="margin:0px auto; width:100%">
+								<div>
+										\[
+											u\left(t\right)\rightarrow u^{d}\quad\dot{w}\left(x,t\right)\rightarrow 0\quad\dot{\theta}\left(t\right)\rightarrow 0
+										\]
+								</div>
+							</div>
+					</section>
+					<section>
+						<h3>Control objective</h3>
+							<div id="contentBox" style="margin:0px auto; width:100%">
+								<div>
+									<small>
+										\[
+											\begin{aligned}
+												&u^{d}=EIz_{d}^{'''}\left(L\right)-Mg-\frac{\rho gL}{2}\\
+												&\frac{EI}{\rho}z_{d}^{IV}\left(x\right)=0
+											\end{aligned}
+										\]
+									</small>
+								</div>
+								<div style="padding:15px;"></div>
+								<div class="fragment">
+									<small>
+										\[
+											\begin{aligned}
+												&z_{d}^{IV}\left(x\right)=0\\
+												&z_{d}^{'''}\left(x\right)=c_{1}\\
+												&z_{d}^{''}\left(x\right)=c_{1}x+c_{2}\\
+												&z_{d}^{'}\left(x\right)=\frac{1}{2}c_{1}x^{2}+c_{2}x+c_{3}\\
+												&z_{d}\left(x\right)=\frac{1}{6}c_{1}x^{3}+\frac{1}{2}c_{2}x^{2}+c_{3}x+c_{4}\\
+											\end{aligned}
+										\]
+									</small>
+								</div>
+							</div>
+					</section>
+					<section>
+						<h3>Control objective</h3>
+							<div id="contentBox" style="margin:0px auto; width:100%">
+								<div>
+									<small>
+										\[
+											\begin{aligned}
+												&u^{d}=EIz_{d}^{'''}\left(L\right)-Mg-\frac{\rho gL}{2}\\
+												&\frac{EI}{\rho}z_{d}^{IV}\left(x\right)=0
+											\end{aligned}
+										\]
+									</small>
+								</div>
+								<div style="padding:10px;"></div>
+								<div class="fragment">
+									<small>
+										\[
+											\begin{aligned}
+												&z_{d}^{'''}\left(L\right)=c_{1}=\frac{1}{EI}\left(u^{d}+Mg+\frac{\rho gL}{2}\right)\\
+												&z_{d}\left(0\right)=c_{4}=0\\
+												&z_{d}^{''}\left(L\right)=c_{1}L+c_{2}=0\quad\Longleftrightarrow\quad c_{2}=-c_{1}L\\
+												&z_{d}\left(L\right)=\frac{1}{6}c_{1}L^{3}-\frac{1}{2}c_{1}L^{3}+c_{3}L=0\quad\Longleftrightarrow\quad c_{3}=\frac{1}{3}c_{1}L^{2}\\
+											\end{aligned}
+										\]
+									</small>
+								</div>
+								<div style="padding:15px;"></div>
+								<div class="fragment">
+									<small>
+										\[
+											z_{d}\left(x\right)=\frac{x}{6EI}\left(u^{d}+Mg+\frac{\rho gL}{2}\right)\left(x^{2}-3Lx+2L^{2}\right)
+										\]
+									</small>
+								</div>
+							</div>
+					</section>
+					<section>
+						<h3>Compensator</h3>
+							<div id="contentBox" style="margin:0px auto; width:100%">
+								<div>
+									<small>
+										\[
+											\dot{s}\left(t\right)=k_{3}\left[EIz^{''}\left(0,t\right)-s\right]
+										\]
+									</small>
+								</div>
+							</div>
+					</section>
+					<section>
+						<h3>Controller</h3>
+							<div id="contentBox" style="margin:0px auto; width:100%">
+								<div>
+									<small>
+										\[
+											\tau\left(t\right)=-k_{1}EI\left[z^{''}\left(0,t\right)-z_{d}^{''}\left(0\right)\right]-k_{2}\left[EIz^{''}\left(0,t\right)-s\right]
+										\]
+									</small>
+								</div>
+							</div>
+					</section>
+					<section>
+						<h3>Change of variable</h3>
+							<div id="contentBox" style="margin:0px auto; width:100%">
+								<div>
+									<small>
+										\[
+											q\left(t\right)=EIz^{''}\left(0,t\right)-s\left(t\right)
+										\]
+									</small>
+								</div>
+								<div style="padding:15px;"></div>
+								<div>
+									<small>
+										\[
+											p\left(x,t\right)=z\left(x,t\right)-z_{d}\left(x\right)
+										\]
+									</small>
+								</div>
+								<div style="padding:15px;"></div>
+								<div>
+									<small>
+										\[
+											x\rightarrow 1-\frac{x}{L}\qquad t\rightarrow\sqrt{\frac{EI}{L^{4}\rho}}t
+										\]
+									</small>
+								</div>
+							</div>
+					</section>
+					<section>
+						<h3>Closed-loop system</h3>
+							<div id="contentBox" style="margin:0px auto; width:100%">
+								<div>
+									<small>
+										\[
+											\begin{cases}
+											    \ddot{p}\left(x,t\right)+p^{IV}\left(x,t\right)=0\quad 0\leq x\leq 1,t\geq 0\\
+											    p\left(0,t\right)=0\qquad p\left(1,t\right)=0\\
+											    p^{''}\left(0,t\right)=0\\
+											    \ddot{p}^{'}\left(1,t\right)=\tilde{k}_{1}p^{''}\left(1,t\right)+\tilde{k}_{2}q\left(t\right)\\
+											    \dot{q}\left(t\right)=-k_{3}q\left(t\right)+\kappa\dot{p}^{''}\left(1,t\right)
+											\end{cases}
+										\]
+									</small>
+								</div>
+								<div style="padding:15px;"></div>
+								<div>
+									<small>
+										\[
+											\text{with}\quad u\left(t\right)-u^{d}=-\frac{1}{L^{3}}EIp^{'''}\left(0,t\right)
+										\]
+									</small>
+								</div>
+								<div style="padding:15px;"></div>
+								<div>
+									<small>
+										\[
+											\text{where}\quad\tilde{k}_{1}=\frac{k_{1}L^{3}\rho}{J}\quad\tilde{k}_{2}=\frac{k_{2}L^{5}\rho}{EIJ}\quad\kappa=\frac{EI}{L^{2}}\sqrt{\frac{EI}{\rho L^{4}}}
+										\]
+									</small>
+								</div>
+							</div>
+					</section>
+					<section>
+						<h3>Hilbert space formulation</h3>
+							<div id="contentBox" style="margin:0px auto; width:100%">
+								<div>
+									<small>
+										\[
+											H=V\times\left(H^{2}\left(0,1\right)\cap H_{0}\left(0,1\right)\right)
+										\]
+									</small>
+								</div>
+								<div style="padding:15px;"></div>
+								<div>
+									<small>
+										\[
+											<z,\tilde{z}>_{H}=\frac{1}{2}\int_{0}^{1}u^{IV}\bar{\tilde{z}^{IV}}dx+\frac{1}{2}u^{''}\left(1\right)\bar{\tilde{u}^{''}\left(1\right)}+\frac{1}{2}\int_{0}^{1}v^{''}\bar{\tilde{v}^{''}}dx+\frac{1}{2\kappa}q\bar{\tilde{q}}
+										\]
+									</small>
+								</div>
+								<div style="padding:15px;"></div>
+								<div>
+									<small>
+										\[
+											\text{where}\quad\tilde{k}_{1}=\frac{k_{1}L^{3}\rho}{J}\quad\tilde{k}_{2}=\frac{k_{2}L^{5}\rho}{EIJ}\quad\kappa=\frac{EI}{L^{2}}\sqrt{\frac{EI}{\rho L^{4}}}
+										\]
+									</small>
+								</div>
+							</div>
 					</section>
 				</section>
 
